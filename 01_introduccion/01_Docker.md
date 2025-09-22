@@ -1,7 +1,8 @@
 # Docker  
 
 ## ¿Qué es Docker?  
-Docker es una plataforma de código abierto para crear y gestionar aplicaciones en contenedores, que son unidades estandarizadas que empaquetan el código de una aplicación con sus dependencias (bibliotecas, código, herramientas del sistema) para que pueda ejecutarse de forma fiable en cualquier entorno. Su uso simplifica el desarrollo y despliegue de aplicaciones, garantizando que funcionen de la misma manera desde el entorno local hasta la nube, y ofrece ventajas como la modularidad, la velocidad y la portabilidad.  
+- Docker es una plataforma de código abierto para crear y gestionar aplicaciones en contenedores, que son unidades estandarizadas que empaquetan el código de una aplicación con sus dependencias (bibliotecas, código, herramientas del sistema) para que pueda ejecutarse de forma fiable en cualquier entorno.
+- Su uso simplifica el desarrollo y despliegue de aplicaciones, garantizando que funcionen de la misma manera desde el entorno local hasta la nube, y ofrece ventajas como la modularidad, la velocidad y la portabilidad.  
 
 ## ¿Docker es nativo de Windows o Linux?  
 Docker se creó originalmente sobre Linux y funciona de manera nativa allí al aprovechar tecnologías como los grupos de control y espacios de nombres del kernel de Linux. Para Windows, en cambio, Docker utiliza una máquina virtual o el subsistema de Windows para Linux (WSL) para poder ejecutar sus contenedores, los cuales se basan fundamentalmente en Linux.
@@ -34,14 +35,65 @@ Es un archivo de texto que contiene las instrucciones para construir una imagen 
 
 ## Docker vs Virtualización
 
-<img width="3840" height="1332" alt="SWTM-2060_Diagram_Containers_VirtualMachines_v03" src="https://github.com/user-attachments/assets/b852ec12-dc2e-4b32-aed7-5cff9fa97338" />
+<img width="3840" height="1332" alt="SWTM-2060_Diagram_Containers_VirtualMachines_v03" src="https://github.com/user-attachments/assets/b852ec12-dc2e-4b32-aed7-5cff9fa97338" />  
+
+### Tipos de Hypervisores  
+
+<img width="838" height="477" alt="imagen" src="https://github.com/user-attachments/assets/e39e5a46-71b4-49b8-a68d-eb9126a2843c" />
+
+***Tipo 1***  
+- Se ejecuta directamente sobre el hardware  
+- Ofrece mejor rendimiento y eficiencia
+- Es ideal para entornos empresariales
+- Requiere configuración más compleja
+- Tiene mayor seguridad al tener menos capas
+
+***Tipo 2***  
+- Corre sobre un sistema operativo
+- Es más lento por la capa adicional del sistema operativo
+- Se utiliza más en pruebas y uso personal
+- Es más sencillo de instalar y usar
+- Depende de la seguridad del sistema operativo host  
 
 ### Tabla comparativa Docker vs Máquina virtual
 
-<img width="804" height="340" alt="imagen" src="https://github.com/user-attachments/assets/fa5b2f34-bdf5-4815-9451-f19aab81c312" />
-
-<img width="769" height="471" alt="Figura-3-Comparacion-de-los-hipervisores-y-virtualizacion" src="https://github.com/user-attachments/assets/18d7f9ea-bbe1-4400-a600-d55c497be7d2" />
-
+<table>
+  <tr>
+    <th>Características</th>
+    <th>Docker (contenedores)</th>
+    <th>Vritualización(máquinas virtuales)</th>
+  </tr>
+  <tr>
+    <td>Aislamiento</td>
+    <td>Comparte el kernel dis SO host</td>
+    <td>Aislamiento completo con OS propio</td>
+  </tr>
+  <tr>
+    <td>Uso de recursos</td>
+    <td>Muy ligero (menos CPU, MEMORIA y disco)</td>
+    <td>Mayor consumo de recursos</td>
+  </tr>
+  <tr>
+    <td>Tiempo de inicio</td>
+    <td>Muy rápido (segundos)</td>
+    <td>Lento (puede tardar varios minutos)</td>
+  </tr>
+  <tr>
+    <td>Portabilidad</td>
+    <td>Muy alta, ejecutable en cualquier sistema con Docker</td>
+    <td>Limitada, depende del hipervisor y configuraciones</td>
+  </tr>
+  <tr>
+    <td>Desempeño</td>
+    <td>Casi nativo, sin sobrecarga de hipervisor</td>
+    <td>Más lento por la capa de virtualización</td>
+  </tr>
+  <tr>
+    <td>Seguridad</td>
+    <td>Aislamiento limitado(riesgos si se compromete el host)</td>
+    <td>Mayor aislamiento, más seguro en entornos críticos</td>
+  </tr>
+</table>
 
 ### Imagen vs Contenedor
 
