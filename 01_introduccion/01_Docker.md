@@ -1,7 +1,18 @@
-# Docker
+# Docker  
 
-## ¿Qué es Docker?
+## ¿Qué es Docker?  
 Docker es una plataforma de código abierto para crear y gestionar aplicaciones en contenedores, que son unidades estandarizadas que empaquetan el código de una aplicación con sus dependencias (bibliotecas, código, herramientas del sistema) para que pueda ejecutarse de forma fiable en cualquier entorno. Su uso simplifica el desarrollo y despliegue de aplicaciones, garantizando que funcionen de la misma manera desde el entorno local hasta la nube, y ofrece ventajas como la modularidad, la velocidad y la portabilidad.  
+
+## ¿Docker es nativo de Windows o Linux?  
+Docker se creó originalmente sobre Linux y funciona de manera nativa allí al aprovechar tecnologías como los grupos de control y espacios de nombres del kernel de Linux. Para Windows, en cambio, Docker utiliza una máquina virtual o el subsistema de Windows para Linux (WSL) para poder ejecutar sus contenedores, los cuales se basan fundamentalmente en Linux.
+
+## ¿Cómo funciona Docker en Windows?  
+
+***Máquina virtual o WSL***, Para ejecutar contenedores en Windows, Docker utiliza un sistema subyacente. Históricamente esto ha sido una máquina virtual, pero ahora se usa el Subsistema de Windows para Linux (WSL 2)  
+
+<img width="600" alt="wsl-en" src="https://github.com/user-attachments/assets/5f21744c-9e87-4b69-8578-a4a4578af5b9" />
+
+***Docker Desktop***, En Windows, se suele usar la aplicación Docker Desktop, que proporciona una integración conveniente y permite ejecutar tanto contenedores de Linux como de Windows en la misma máquina, aunque no simultáneamente.  
 
 ## Conceptos
 
