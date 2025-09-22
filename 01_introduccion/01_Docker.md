@@ -37,6 +37,9 @@ Es un archivo de texto que contiene las instrucciones para construir una imagen 
 
 <img width="804" height="340" alt="imagen" src="https://github.com/user-attachments/assets/fa5b2f34-bdf5-4815-9451-f19aab81c312" />
 
+<img width="769" height="471" alt="Figura-3-Comparacion-de-los-hipervisores-y-virtualizacion" src="https://github.com/user-attachments/assets/18d7f9ea-bbe1-4400-a600-d55c497be7d2" />
+
+
 ### Imagen vs Contenedor
 
 **Imagen**, Una imagen es una plantilla, de un contenedor que corre alguna aplicación. Las imágenes al ser plantillas van a ser  usadas para crear nuevos contenedores. Las plantillas nunca cambian a menos que creemos una nueva a partir de un contenedor.
