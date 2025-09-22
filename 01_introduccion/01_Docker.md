@@ -14,6 +14,9 @@ Docker se creó originalmente sobre Linux y funciona de manera nativa allí al a
 
 ***Docker Desktop***, En Windows, se suele usar la aplicación Docker Desktop, que proporciona una integración conveniente y permite ejecutar tanto contenedores de Linux como de Windows en la misma máquina, aunque no simultáneamente.  
 
+## Requerimientos de WSL 2
+Para utilizar WSL 2, necesitas Windows 10 versión 2004 (compilación 19041) o superior, o Windows 11. Es imprescindible un procesador de 64 bits con traducción de direcciones de segundo nivel (SLAT) y tener la virtualización de hardware habilitada en la BIOS/UEFI de tu equipo. Además, se requiere una cantidad adecuada de memoria RAM (mínimo 4 GB)
+
 ## Conceptos
 
 ### 1. Contenedor
