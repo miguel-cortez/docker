@@ -252,7 +252,7 @@ sudo docker run --name mipostgres -e POSTGRES_PASSWORD=12345 -d -p 5432:5432 pos
 sudo docker exec -it mipostgres psql -U postgres
 ```
 
-🔑 Por alguna razón... no pide la claver (pendiente de investigar).  
+🔑 Por alguna razón... no pide la clave (pendiente de investigar).  
 
 **Mostrar las bases de datos**  
 
