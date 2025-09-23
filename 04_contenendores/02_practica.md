@@ -35,6 +35,7 @@ Una vez ejecutado el contenendor, se pide que consulte la información del SO. P
 
 Verá un resultado como el siguiente:  
 
+```
 / # cat /etc/os-release
 NAME="Alpine Linux"
 ID=alpine
@@ -43,6 +44,7 @@ PRETTY_NAME="Alpine Linux v3.22"
 HOME_URL="https://alpinelinux.org/"
 BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
 / #
+```
 
 ## Listar todas las imágenes  
 
@@ -56,51 +58,153 @@ sudo docker images
 sudo docker images -q
 ```
 
+## Eliminar un contenedor
 
+Se pide eliminar el contenedor mysql-test.  
+
+```
 sudo docker container rm mysql-test
+```
 
+## Ejecute un contenedor de ubuntu de manera interactiva. El comando a ejecutar es bash.
+
+```
 docker container run -it ubuntu bash
+```
+
+***es equivalente a***  
+```
 docker container run --rm --interactive --tty ubuntu bash
-                             -i           -t
+```
 
+**Recordatorio** -i = interactive, -t = --tty`
+
+## Ejecute un contenedor de PHP de manera interactiva
+
+Se ejecutará el comando `php -a` que permite ejecutar comandos de PHP de manera interactiva mediante una terminal.  
+```
 docker container run --rm --interactive --tty php php -a
-											php: imagen
-											php -a comando para modo interactivo.
-											
-docker container run --rm -it node node
+```
+donde **php** es la imagen y **php -a** es el comando que se está ejecutando en el contenedor.  Ahora puede ejeucutar comandos de php dentro del contenedor.  
 
-Comandos:
+ejemplos:  
+```
+echo "Bienvenidos a PHP";
+echo 4 + 10;
+echo phpinfo();
+```
+
+## Ejecute un contenedro de node de manera interactiva  
+
+```
+docker container run --rm -it node node
+```
+
+donde la primera palabra **node** es el nombre de la imagen y la segunda palabra **node** es el comando que se está ejecutando dentro del contenedor.  
+
+📗 Comandos que puede probar en el contenedor de node:  
+
 console.log("Hola desde Node")
 const os =require('node:os')
 console.log(os.cpus())
 console.log(os.homedir())
 console.log(os.machine())
 console.log(os.networkInterfaces())
-.exit para salir
 
+**.exit** para salir
 
-docker container run --name hello hello-world
+## Ejecutar un contenedor de hello-world
 
-Se elimina automáticamente
-docker container run --name hello2 --rm hello-world
+El parámetro **--rm** indica que elimine el contenedor una vez finalizada la ejecución del comando.  
 
-https://www.ionos.com/es-us/digitalguide/servidores/know-how/comandos-de-docker/
+```
+docker container run --name hello --rm hello-world
+```
 
+# PUBLICAR UN SERVICIO EN UN PUERTO
 
-Publicar un servicio en un puerto:
+## Publique el servicio de nginx
+
+```
++-----------Host----------+
+-                         -
+-    +---container---+    -
+-    -     nginx     -    -
+-    -               -    -
+-    -               -    -
+-    +-------80------+    -
+-             |           -
+-             |           -
++-----------8080----------+
+              |
+              |
+        Navegador web
+```
+
+```
 sudo docker container run --rm --publish 8080:80 nginx
+```
 
-Ejecutar mysql en primer plano:
+📗 Nota. Consulte en el servidor desde el navegador web del host (http://localhost:8080)  
+
+## Ejecutar mysql en primer plano
+
+```
++-----------Host------------+
+-                           -
+-                           -
+-    +----container-----+   -
+-    -      mysql       -   -
+-    -                  -   -
+-    +-------3306-------+   -
+-             |             -
+-             |             -
++------------3306-----------+
+              |
+              |
+     Cliente de base de datos
+```
+
+
+```
 docker container run --name mysql8 --rm --env MYSQL_ROOT_PASSWORD=12345 --publish 3306:3306 mysql:8.0
+```
 
-Conectar desde Heidi SQL:
-Usando el puerto 3306 y la clave 12345
-Control C aparentemente sale del contenedor pero queda en ejecución (aún disponible para su uso).
+▶️ Se pide utilizar una interfaz gráfica para conectarse a la base de datos desde el equipo host. Puede utilizar HeidiSQL, DBEver, phpMyAdmin, etc.  La clave establecida para el usuario **root** es **12345**  
 
-sudo docker container stop <nombre o pid>
+**CTRL+C** para cerrar el contenedor. Aún queda en ejecución.  
 
-En segundo plano:
+📙 Se puede cerrar el contenedor con el siguiente comando:  
+
+```
+sudo docker container stop <nombre contenedor>
+```
+
+```
+sudo docker container stop <PID>
+```
+
+## Ejecutar mysql en segundo plano
+
+```
++-----------Host------------+
+-                           -
+-                           -
+-    +----container-----+   -
+-    -      mysql       -   -
+-    -                  -   -
+-    +-------3306-------+   -
+-             |             -
+-             |             -
++------------3306-----------+
+              |
+              |
+     Cliente de base de datos
+```
+
+```
 docker container run -d --name mysql8 --rm --env MYSQL_ROOT_PASSWORD=12345 --publish 3306:3306 mysql:8.0
+```
 
 Instalar cliente de mysql:
 sudo apt update
