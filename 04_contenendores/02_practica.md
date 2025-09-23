@@ -35,16 +35,7 @@ Una vez ejecutado el contenendor, se pide que consulte la información del SO. P
 
 Verá un resultado como el siguiente:  
 
-```
-/ # cat /etc/os-release
-NAME="Alpine Linux"
-ID=alpine
-VERSION_ID=3.22.1
-PRETTY_NAME="Alpine Linux v3.22"
-HOME_URL="https://alpinelinux.org/"
-BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
-/ #
-```
+<img width="757" height="214" alt="imagen" src="https://github.com/user-attachments/assets/2e604d71-ee74-491c-b221-7e2790017db6" />
 
 ## Listar todas las imágenes  
 
@@ -97,7 +88,7 @@ echo phpinfo();
 ## Ejecute un contenedor de node de manera interactiva  
 
 ```
-docker container run --rm -it node node
+sudo docker container run --rm -it node node
 ```
 
 donde la primera palabra **node** es el nombre de la imagen y la segunda palabra **node** es el comando que se está ejecutando dentro del contenedor.  
@@ -118,10 +109,10 @@ console.log(os.networkInterfaces())
 El parámetro **--rm** indica que elimine el contenedor una vez finalizada la ejecución del comando.  
 
 ```
-docker container run --name hello --rm hello-world
+sudo docker container run --name hello --rm hello-world
 ```
 
-# PUBLICAR UN SERVICIO EN UN PUERTO
+# Publicar un servicio en un puerto
 
 ## Publique el servicio de nginx
 
@@ -170,11 +161,13 @@ sudo docker container run --rm --publish 8080:80 nginx
 docker container run --name mysql8 --rm --env MYSQL_ROOT_PASSWORD=12345 --publish 3306:3306 mysql:8.0
 ```
 
-▶️ Se pide utilizar una interfaz gráfica para conectarse a la base de datos desde el equipo host. Puede utilizar HeidiSQL, DBEver, phpMyAdmin, etc.  La clave establecida para el usuario **root** es **12345**  
+▶️ Se pide utilizar una interfaz gráfica como HeidiSQL, DBeaver, phpMyAdmin, etc. para conectarse a la base de datos desde el equipo host (Microsoft Windows 11) 
+▶️ El host a utilizar es **127.0.0.1**  
+▶️ La clave establecida para el usuario **root** es **12345**  
 
-**CTRL+C** para cerrar el contenedor. Aún queda en ejecución.  
+**CTRL+C** para cerrar el contenedor. 👁️El contenedor aún queda en ejecución.  
 
-📙 Se puede cerrar el contenedor con el siguiente comando:  
+📙 El contenedor se puede detener con uno de los siguientes comandos:  
 
 ```
 sudo docker container stop <nombre contenedor>
@@ -206,41 +199,87 @@ sudo docker container stop <PID>
 docker container run -d --name mysql8 --rm --env MYSQL_ROOT_PASSWORD=12345 --publish 3306:3306 mysql:8.0
 ```
 
-Instalar cliente de mysql:
+## Instalar cliente de mysql en Ubuntu
+
+```
 sudo apt update
 sudo apt install -y mysql-client
+```
+## Ingresar al servidor de MySQL que se está ejecutando en el contenedor
 
+```
 mysql --host=127.0.0.1 --port=3306 --user=root --password=12345
+```
 
-Ejecutar mongodb:
+## Ejecutar un contenedor de mongodb en segundo plano
+
+```
 sudo docker run --name mongodb-container -d -p 27017:27017 mongo:latest
+```
 
-Ingresar a la shell de mongo:
+## Ingresar a la shell de mongo
+
+```
 sudo docker exec -it mongodb-container mongosh
+```
 
-Para ver las bases de datos:
+***Para ver las bases de datos***  
+
+```
 show databases
+```
 
-para trabajar con una base de datos:
+***Para trabajar con una base de datos***
+
+```
 use mybasedatos
+```
 
-Ver contenedores en ejecución:  
+👓 Ver contenedores en ejecución:  
+
+```
 sudo docker ps
+```
 
-Ejecutar postgres:
+## Ejecutar un contenedor de PostreSQL en segundo plano y publicar el servicio en el puerto 5432
+
+```
 sudo docker run --name mipostgres -e POSTGRES_PASSWORD=12345 -d -p 5432:5432 postgres:15
+```
 
-Conectar a postgres:  
+## Conectarse al servicio de PostgreSQL  
+
+```
 sudo docker exec -it mipostgres psql -U postgres
+```
 
+🔑 Por alguna razón... no pide la claver (pendiente de investigar).  
+
+**Mostrar las bases de datos**  
+
+```
 SELECT current_database();
+```
+o
 
-Ver las bases de datos:
+```
 \list
+```
 
-Conectarse a una base de datos: 
-\connect postgres
+o
+
+```
 SELECT * FROM pg_catalog.pg_database;
+```
 
-REFERENCIA PARA COMANDOS CLIENTE:
-https://docs.docker.com/reference/cli/docker/
+## Conectarse a una base de datos
+
+```
+\connect postgres
+```
+
+
+Referencia:
+[Docker CLI Reference](https://docs.docker.com/reference/cli/docker/)  
+
+
