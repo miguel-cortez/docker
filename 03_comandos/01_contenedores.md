@@ -91,6 +91,26 @@ docker container rm [OPTIONS] CONTAINER [CONTAINER...]
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/container/rm/)  
 
+# docker container stop  
+
+***Descripción***
+Detiene uno o más contenedores en ejecución  
+
+***Sintaxis***  
+```
+docker container stop [OPTIONS] CONTAINER [CONTAINER
+```
+
+***Alias***
+
+```
+docker stop
+```
+
+[Más opciones](https://docs.docker.com/reference/cli/docker/container/stop/)  
+
+
+
 
 
 
