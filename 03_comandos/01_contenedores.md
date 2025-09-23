@@ -48,7 +48,46 @@ docker run
   </tr>
 </table>
 
+📗 **Nota**. En Linux, una TTY (teletype) es un dispositivo de caracteres que permite la entrada y salida de datos, generalmente para interactuar con el sistema operativo a través de un teclado y una pantalla.  
+
 [Más opciones](https://docs.docker.com/reference/cli/docker/container/run/)  
+
+# docker container exec  
+
+***Descripción***  
+Ejecuta un comando en un contenedor en ejecución.  
+
+***Sintaxis***  
+
+```
+docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]
+````
+
+***Alias***  
+```
+docker exec
+```
+
+<table>
+  <tr>
+    <th>Opciones</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td>-d, --detach</td>
+    <td>Modo desatachado: Corre un comando en segundo plano</td>
+  </tr>
+  <tr>
+    <td>-i, --interactive</td>
+    <td>Se ejecuta el comando en modo interactivo</td>
+  </tr>
+  <tr>
+    <td>-t, --tty</td>
+    <td>Asigna una tty</td>
+  </tr>
+</table>
+
+[Más opciones](https://docs.docker.com/reference/cli/docker/container/exec/)  
 
 # docker container ls
 
@@ -93,7 +132,7 @@ docker container rm [OPTIONS] CONTAINER [CONTAINER...]
 
 # docker container stop  
 
-***Descripción***
+***Descripción***  
 Detiene uno o más contenedores en ejecución  
 
 ***Sintaxis***  
