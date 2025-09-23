@@ -160,8 +160,7 @@ sudo docker container run --rm --publish 8080:80 nginx
 ```
 docker container run --name mysql8 --rm --env MYSQL_ROOT_PASSWORD=12345 --publish 3306:3306 mysql:8.0
 ```
-
-▶️ Se pide utilizar una interfaz gráfica como HeidiSQL, DBeaver, phpMyAdmin, etc. para conectarse a la base de datos desde el equipo host (Microsoft Windows 11) 
+▶️ Se pide utilizar una interfaz gráfica como HeidiSQL, DBeaver, phpMyAdmin, etc. para conectarse a la base de datos desde el equipo host (Microsoft Windows 11)  
 ▶️ El host a utilizar es **127.0.0.1**  
 ▶️ La clave establecida para el usuario **root** es **12345**  
 
