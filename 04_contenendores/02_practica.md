@@ -103,14 +103,14 @@ docker container run --rm -it node node
 donde la primera palabra **node** es el nombre de la imagen y la segunda palabra **node** es el comando que se está ejecutando dentro del contenedor.  
 
 📗 Comandos que puede probar en el contenedor de node:  
-
+```
 console.log("Hola desde Node")
 const os =require('node:os')
 console.log(os.cpus())
 console.log(os.homedir())
 console.log(os.machine())
 console.log(os.networkInterfaces())
-
+```
 **.exit** para salir
 
 ## Ejecutar un contenedor de hello-world
