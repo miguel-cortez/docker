@@ -94,7 +94,7 @@ echo 4 + 10;
 echo phpinfo();
 ```
 
-## Ejecute un contenedro de node de manera interactiva  
+## Ejecute un contenedor de node de manera interactiva  
 
 ```
 docker container run --rm -it node node
