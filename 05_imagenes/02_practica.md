@@ -85,7 +85,13 @@ cd busybox_sh
 ```
 #!/bin/sh
 echo "Hola Miguel"
+
+for i in 1 2 3 4 5; do
+  echo "Wellcome $i times"
+done
 ```
+📑Nota. No vaya a escribir **Miguel** sino su nombre (nombre completo es mejor).  
+
 ### 4. Cree un archivo llamado Dockerfile y escriba su contenido
 
 ```
