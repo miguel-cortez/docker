@@ -31,14 +31,14 @@
   </tr>
 </table>
 
-## Pasos generales para crear una imagen personalizada
+## ℹ️ Pasos generales para crear una imagen personalizada
 1. Crear una carpeta con un nombre descriptivo.
 2. Ingresar a la carpeta recién creada.
 3. Crear una archivo llamado `Dockerfile` dentro de la carpeta.
 4. Editar y guardar los cambios en el archivo `Dockerfile`
 5. Construir la imagen con el comando `docker build` 
 
-## Ejemplos
+## 🔰Ejemplos
 
 ## Ejemplo 1
 
@@ -117,7 +117,7 @@ docker container run --rm busybox_sh:v1
 <img width="793" height="162" alt="imagen" src="https://github.com/user-attachments/assets/8186eb5a-0e54-4bd9-8950-2f53f210ad18" />
 
 
-### Notas adicionales
+### 📚 Notas adicionales
 ***Listar las imágenes***
 
 <img width="647" height="116" alt="imagen" src="https://github.com/user-attachments/assets/31427591-3c17-4d7d-9193-235594ad6622" />
