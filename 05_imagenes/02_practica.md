@@ -1,8 +1,9 @@
-# Imágenes personalizadas con Docker
+# Imágenes personalizadas con Dockerfile
 
 ## ¿Qué es Dockerfile?
 
-Docker puede crear imágenes automáticamente leyendo las instrucciones de un archivo Dockerfile. Un archivo Dockerfile es un documento de texto que contiene todos los comandos que un usuario podría ejecutar en la línea de comandos para ensamblar una imagen.
+- Docker puede crear imágenes automáticamente leyendo las instrucciones de un archivo Dockerfile.
+- Un archivo Dockerfile es un documento de texto que contiene todos los comandos que un usuario podría ejecutar en la línea de comandos para ensamblar una imagen.
 
 <table>
   <tr>
@@ -64,7 +65,7 @@ CMD ["bash"]
 
 ## Ejemplo 3
 
-***Descripción**
+***Descripción***
 
 Crear una imagen personalizada basada en la distribución `busybox` y ejecutar un script de Bash (.sh)  
 
@@ -117,6 +118,9 @@ docker container run --rm busybox_sh:v1
 
 
 ### Notas adicionales
+***Listar las imágenes***
+
+<img width="647" height="116" alt="imagen" src="https://github.com/user-attachments/assets/31427591-3c17-4d7d-9193-235594ad6622" />
 
 ***Eliminar una imagen***
 ```
@@ -125,13 +129,17 @@ sudo docker rmi f6c21906ea0c
 
 Donde `f6c21906ea0c` es el `IMAGE ID` de la imagen que quiere borrar.  
 
-¿Quiere borrar una imagen?. Algunas veces no se puede borrar porque tiene un contenedor asociado. Primero debe eliminar el contenedor y luego podrá eliminar la imagen.
+⚠️ **¿Quiere borrar una imagen?**. Algunas veces no se puede borrar porque tiene un contenedor asociado. Primero debe eliminar el contenedor y luego podrá eliminar la imagen.
 
 ***Eliminar un contenedor***
 ```
 sudo docker container rm 8c4c04566d4d
 ```
 Donde `8c4c04566d4d` es el `CONTAINER ID` del contenedor que quiere borrar.  
+
+***Listar los contenedores***  
+
+<img width="1632" height="120" alt="imagen" src="https://github.com/user-attachments/assets/d07bf91a-4a50-4f0f-bb18-a40a4d4af1d5" />
 
 
 [Referencia de Dockerfile](https://docs.docker.com/reference/dockerfile/)  
