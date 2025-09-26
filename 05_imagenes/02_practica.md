@@ -31,6 +31,8 @@
   </tr>
 </table>
 
+[Dockerfile Overview](https://docs.docker.com/build/concepts/dockerfile/)  
+
 ## ℹ️ Pasos generales para crear una imagen personalizada
 1. Crear una carpeta con un nombre descriptivo.
 2. Ingresar a la carpeta recién creada.
@@ -99,9 +101,13 @@ done
 FROM busybox
 COPY /hello.sh /
 RUN chmod 777 /hello.sh
-RUN  sh /hello.sh #Corre cuando se crea la imagen.
-CMD["./hello.sh"]
+RUN sh /hello.sh
+CMD ["./hello.sh"]
 ```
+💡La línea `RUN sh /hello.sh` solo será ejecuta en el momento de creación de la imagen personalizada; pero para el ejemplo no es de interés. 
+
+***¿Qué es busybox?*** BusyBox es una suite de software de código abierto que combina una gran cantidad de utilidades básicas de Unix y Linux en un único y pequeño archivo ejecutable, a menudo referido como una "navaja suiza" para Linux embebido.  
+
 
 ### 5. Ejecute el comando para crear la imagen personalizada
 
