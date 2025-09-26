@@ -1,4 +1,6 @@
-# docker image load  
+# Comandos para trabajar con imágenes
+
+## docker image load  
 ***Descripción***  
 Carga una imagen de un archivo tar o STDIN.  
 
@@ -29,7 +31,7 @@ docker load
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/image/load/)  
 
-# docker docker image ls
+## docker image ls
 
 ***Descripción***  
 Lista las imágenes.  
@@ -61,7 +63,7 @@ docker image list, docker images
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/image/ls/)  
 
-# docker image pull  
+## docker image pull  
 ***Descripción***  
 Descarga una imagen desde un registro.  
 
@@ -92,7 +94,7 @@ docker pull
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/image/pull/)  
 
-# docker image push  
+## docker image push  
 ***Descripción***  
 Subir una imagen a un registro.  
 
@@ -108,7 +110,8 @@ docker push
 
 [Más información](https://docs.docker.com/reference/cli/docker/image/push/)  
 
-# docker image rm  
+## docker image rm  
+
 ***Descripción***  
 Elimina una o más imágenes.  
 
@@ -135,7 +138,8 @@ docker image remove, docker rmi
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/image/rm/)  
 
-# docker image save  
+## docker image save  
+
 ***Descripción***  
 Guardar una o más imágenes en archivo .tar (streamed to STDOUT by default).  
 
@@ -151,7 +155,8 @@ docker save
 
 [Más opciones](https://docs.docker.com/reference/cli/docker/image/save/)  
 
-# docker image tag  
+## docker image tag  
+
 ***Descripción***  
 Crea una etiqueta TARGET_IMAGE que haga referencia a SOURCE_IMAGE.    
 
