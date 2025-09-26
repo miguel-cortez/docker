@@ -41,7 +41,7 @@ Docker puede crear imágenes automáticamente leyendo las instrucciones de un ar
 
 ## Ejemplo 1
 
-***Descripción**
+***Descripción***
 
 Crear una imagen personalizada basada en la distribución `ubuntu:24.04`, actualizar la lista de paquetes disponibles e instalar el paquete `mc`   
 
@@ -52,7 +52,7 @@ RUN apt update && apt install -y mc
 
 ## Ejemplo 2
 
-***Descripción**
+***Descripción***
 
 Crear una imagen personalizada basada en la distribución `ubuntu:24.04`, actualizar la lista de paquetes disponibles e instalar el paquete `vin`. Ejecutar de forma predeterminada el comando `bash`   
 
@@ -84,13 +84,13 @@ cd busybox_sh
 
 ```
 #!/bin/sh
-echo "Hola Miguel"
+echo "Hola Miguel Cortez"
 
 for i in 1 2 3 4 5; do
-  echo "Wellcome $i times"
+  echo "Welcome $i times"
 done
 ```
-📑Nota. No vaya a escribir **Miguel** sino su nombre (nombre completo es mejor).  
+📑Nota. No vaya a escribir **Miguel Cortez** sino su nombre (nombre completo es mejor).  
 
 ### 4. Cree un archivo llamado Dockerfile y escriba su contenido
 
@@ -113,6 +113,25 @@ docker image build -t busybox_sh:v1 .
 ```
 docker container run --rm busybox_sh:v1
 ```
-<img width="779" height="169" alt="imagen" src="https://github.com/user-attachments/assets/af3097d9-6112-4b16-8e08-6c715982dc64" />
+<img width="793" height="162" alt="imagen" src="https://github.com/user-attachments/assets/8186eb5a-0e54-4bd9-8950-2f53f210ad18" />
+
+
+### Notas adicionales
+
+***Eliminar una imagen***
+```
+sudo docker rmi f6c21906ea0c
+```
+
+Donde `f6c21906ea0c` es el `IMAGE ID` de la imagen que quiere borrar.  
+
+¿Quiere borrar una imagen?. Algunas veces no se puede borrar porque tiene un contenedor asociado. Primero debe eliminar el contenedor y luego podrá eliminar la imagen.
+
+***Eliminar un contenedor***
+```
+sudo docker container rm 8c4c04566d4d
+```
+Donde `8c4c04566d4d` es el `CONTAINER ID` del contenedor que quiere borrar.  
+
 
 [Referencia de Dockerfile](https://docs.docker.com/reference/dockerfile/)  
