@@ -137,8 +137,11 @@ CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 ```bash
 docker image build -t example-app:v1.0 .
 ```
+🔰Inicialmente, cuando documenté el proceso me funcionó (en la laptop)
 
-#### 😠Error a la hora construir la imagen (ocurrió durante la clase del grupo B).
+<img width="50" alt="348407-1" src="https://github.com/user-attachments/assets/015736b9-a876-4f11-8644-c3a5e65ec5ac" />  
+
+**ERROR**
 
 <img width="1905" height="963" alt="imagen" src="https://github.com/user-attachments/assets/7cfe5de2-d199-45a4-bbf8-923dd2b0fd27" />  
 
@@ -146,9 +149,29 @@ El problema ocurrió aparentemente por la instrucción `RUN composer install --o
 
 <img width="1488" height="165" alt="imagen" src="https://github.com/user-attachments/assets/010cd7ce-3a74-4d8b-ba1e-339fd3ae34e3" />
 
-**PROBLEMA SOLVENTADO**  
+
+<img width="50" alt="177571" src="https://github.com/user-attachments/assets/bfd7cbcc-79dc-414c-851c-7abe2b1c6c41" />  
+
+**PROBLEMA CORREGIDO**
 
 <img width="1247" height="534" alt="imagen" src="https://github.com/user-attachments/assets/56527504-0127-4400-ae0a-3f62554841d8" />
+
+🔑 **ESTA FUE LA SOLUCIÓN**
+
+- Modifiqué el archivo **.env**
+- Agregué las dos líneas marcadas con color rojo.
+
+<img width="877" height="693" alt="imagen" src="https://github.com/user-attachments/assets/9773e8a9-cf76-4e6a-9690-dc49b6119e17" />
+
+**¿POR QUÉ OCURRIÓ EL ERROR?**
+
+- Ocurrió porque yo tengo la misma aplicación **example-app** en dos computadoras (LAPTOP y PC DE ESCRITORIO).
+- Las dos aplicaciones no son exactamente iguales. Esto porque cuando estuve desarrollando **example-app** algunas veces trabajaba en la laptop y otras veces en la pc de escritorio.
+- No me aseguraba de actualizar la aplicación y ahora incluso ya no sé cual es la versión más reciente.
+- En realidad no tengo una versión más reciente (simplemente no son iguales).
+- En la PC DE ESCRITORIO trabajé un proceso para crear respaldos de base de datos y en la laptop no tengo ese proceso.
+- El paquete que usé para crear respaldos necesita de librerías de compresión de archivos. Yo utilicé **Laravel Backup**.
+- **En conclusión** Cuando vaya a dockerizar una imagen será necesario que sepa qué necesita su aplicación para que incluya esos paquetes en el archivo **Dockerfile**  
 
 
 # 4. Ejecución de la aplicación
