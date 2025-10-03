@@ -119,10 +119,21 @@ CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 ```
 
 # 3. Creación de la imagen personalizada
+
 ```bash
 docker image build -t example-app:v1.0 .
 ```
-# 4. Ejeución de la aplicación
+# 4. Ejecución de la aplicación
+
+👉 Para ejecutar la aplicacion es necesario escribir todas las variables de entorno contenidas en el archivo **.env**  
+👉 No tome en cuenta las variables comentadas con el símbolo **#** en el archivo **.env**  
+📘 ***Sugerencia*** Primero prepare el comando en un editor de texto para evitar complicaciones (me refiero a que no intente escribir el comando completo en la **Terminal** porque es más complicado encontrar errores)  
+
+***Captura parcial del archivo .env***  
+
+<img width="637" height="412" alt="imagen" src="https://github.com/user-attachments/assets/a12ea723-282e-45d9-8fc5-aa15c11f4607" />  
+
+***Comando para ejecutar la aplicación en un entorno local***  
 
 ```bash
 docker container run --rm \
@@ -178,4 +189,10 @@ docker container run --rm \
   -e VITE_APP_NAME="${APP_NAME}" \
   -p 8000:8000 \
   example-app:v1.0
+```
+✨ El comando anterior está bien para comprender cómo se puede ejecutar la aplicación especificando cada variable de entorno de forma individual; pero pienso que es más práctico enviando como parámetro el nombre del archivo **.env** que tiene las mismas variables de entorno, o más bien dicho, las variables de entorno especificadas arriba han sido tomadas del archivo **.env** de la aplicación de Laravel.  
+
+***Esta sería una forma más práctica de ejecutar la aplicación y el resultado sería el mismo***  
+```
+docker container run --rm   --name example-app   --env-file .env  -p 8000:8000   example-app:v1.0
 ```
