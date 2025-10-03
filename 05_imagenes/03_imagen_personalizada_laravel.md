@@ -1,4 +1,18 @@
 # Imagen personalizada para un proyecto de Laravel
+## Antes de comenzar
+
+Es necesario que sepa cómo llegar a la carpeta del proyecto que se encuentra en la carpeta de Windows, por ejemplo en **📁c:\wamp64\www\example-app**
+
+***Desde Ubuntu***  
+
+```
+cd /mnt
+cd c
+cd wamp64
+cd www
+cd example-app
+```
+Dentro de esta carpeta se crean los archivos (.dockerignore y Dockerfile que explico más adelante).  
 
 ## 1. Crear un archivo .dockerignore
 
@@ -190,6 +204,11 @@ docker container run --rm \
   -p 8000:8000 \
   example-app:v1.0
 ```
+
+#### 😠Error a la hora de ejecutar (ocurrió durante la clase del grupo B).
+
+<img width="1488" height="165" alt="imagen" src="https://github.com/user-attachments/assets/010cd7ce-3a74-4d8b-ba1e-339fd3ae34e3" />
+
 
 ***Pruebe la aplicación en el navegador web del equipo host***
 
