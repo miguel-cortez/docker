@@ -196,11 +196,13 @@ docker container run --rm \
 ```
 http://localhost:8000/
 ```
-<img width="1452" height="851" alt="imagen" src="https://github.com/user-attachments/assets/e1297c91-dbf7-4c3c-ada4-721f76250cc7" />
+<img width="1452" height="851" alt="imagen" src="https://github.com/user-attachments/assets/e1297c91-dbf7-4c3c-ada4-721f76250cc7" />  
 
-Cambiando la constante de **SESSION_DRIVER=database** por **SESSION_DRIVER=array** podrá evitar el problema (luego se va a configurar una base de datos).  
 
-<img width="1106" height="740" alt="imagen" src="https://github.com/user-attachments/assets/4675afdb-3f4c-4622-aeb5-e51a6b451f0f" />
+
+🍬 Cambiando la constante de **SESSION_DRIVER=database** por **SESSION_DRIVER=array** en el archivo **.env** podrá evitar el problema (luego se va a configurar una base de datos).  
+
+<img width="1106" height="740" alt="imagen" src="https://github.com/user-attachments/assets/4675afdb-3f4c-4622-aeb5-e51a6b451f0f" />  
 
 
 ⚡***Nota***. El error se debe a que en el contenedor solo está ejecutando el comando **php artisan serve** y no se dispone de un servidor de base de datos, por lo tanto, no obtener información de la tabla **sessions** como suguiere el mensaje de error.  
