@@ -11,3 +11,6 @@ Crear una base de datos de prueba
 ```
 mysql -h db4free.net -u tu_usuario -p
 ```
+Nueva cuenta
+
+<img width="1056" height="599" alt="imagen" src="https://github.com/user-attachments/assets/cca47af3-4a79-418a-879b-52fa17405ee9" />
