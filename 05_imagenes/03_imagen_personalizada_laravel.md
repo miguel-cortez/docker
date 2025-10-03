@@ -137,6 +137,17 @@ CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 ```bash
 docker image build -t example-app:v1.0 .
 ```
+
+#### 😠Error a la hora construir la imagen (ocurrió durante la clase del grupo B).
+
+<img width="1905" height="963" alt="imagen" src="https://github.com/user-attachments/assets/7cfe5de2-d199-45a4-bbf8-923dd2b0fd27" />  
+
+El problema ocurrió aparentemente por la instrucción `RUN composer install --optimize-autoloader --no-dev --prefer-source`. Temporalmente la cambié por `RUN composer install` y la imagen se pudo crear pero a la hora de ejecutar ***NO FUNCIONÓ***  
+
+<img width="1488" height="165" alt="imagen" src="https://github.com/user-attachments/assets/010cd7ce-3a74-4d8b-ba1e-339fd3ae34e3" />
+
+**🐛TRATARÉ DE ENCONTRAR UNA SOLUCIÓN**  
+
 # 4. Ejecución de la aplicación
 
 👉 Para ejecutar la aplicacion es necesario escribir todas las variables de entorno contenidas en el archivo **.env**  
@@ -204,11 +215,6 @@ docker container run --rm \
   -p 8000:8000 \
   example-app:v1.0
 ```
-
-#### 😠Error a la hora de ejecutar (ocurrió durante la clase del grupo B).
-
-<img width="1488" height="165" alt="imagen" src="https://github.com/user-attachments/assets/010cd7ce-3a74-4d8b-ba1e-339fd3ae34e3" />
-
 
 ***Pruebe la aplicación en el navegador web del equipo host***
 
