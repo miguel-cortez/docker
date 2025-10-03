@@ -8,3 +8,6 @@ Crear una base de datos de prueba
 
 <img width="1362" height="666" alt="imagen" src="https://github.com/user-attachments/assets/4e03399d-55ff-4e7d-af88-1bffb8aad940" />
 
+```
+mysql -h db4free.net -u tu_usuario -p
+```
