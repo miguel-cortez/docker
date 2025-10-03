@@ -14,3 +14,5 @@ mysql -h db4free.net -u tu_usuario -p
 Nueva cuenta
 
 <img width="1056" height="599" alt="imagen" src="https://github.com/user-attachments/assets/cca47af3-4a79-418a-879b-52fa17405ee9" />
+
+<img width="961" height="396" alt="imagen" src="https://github.com/user-attachments/assets/186e07cb-aa3e-493c-8857-47b20be4c193" />
