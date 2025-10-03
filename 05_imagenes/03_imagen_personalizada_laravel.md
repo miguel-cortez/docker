@@ -190,6 +190,23 @@ docker container run --rm \
   -p 8000:8000 \
   example-app:v1.0
 ```
+
+***Pruebe la aplicación en el navegador web del equipo host***
+
+```
+http://localhost:8000/
+```
+<img width="1452" height="851" alt="imagen" src="https://github.com/user-attachments/assets/e1297c91-dbf7-4c3c-ada4-721f76250cc7" />
+
+Cambiando la constante de **SESSION_DRIVER=database** por **SESSION_DRIVER=array** podrá evitar el problema (luego se va a configurar una base de datos).  
+
+<img width="1106" height="740" alt="imagen" src="https://github.com/user-attachments/assets/4675afdb-3f4c-4622-aeb5-e51a6b451f0f" />
+
+
+⚡***Nota***. El error se debe a que en el contenedor solo está ejecutando el comando **php artisan serve** y no se dispone de un servidor de base de datos, por lo tanto, no obtener información de la tabla **sessions** como suguiere el mensaje de error.  
+
+
+
 ✨ El comando anterior está bien para comprender cómo se puede ejecutar la aplicación especificando cada variable de entorno de forma individual; pero pienso que es más práctico enviando como parámetro el nombre del archivo **.env** que tiene las mismas variables de entorno, o más bien dicho, las variables de entorno especificadas arriba han sido tomadas del archivo **.env** de la aplicación de Laravel.  
 
 ***Esta sería una forma más práctica de ejecutar la aplicación y el resultado sería el mismo***  
