@@ -146,7 +146,10 @@ El problema ocurrió aparentemente por la instrucción `RUN composer install --o
 
 <img width="1488" height="165" alt="imagen" src="https://github.com/user-attachments/assets/010cd7ce-3a74-4d8b-ba1e-339fd3ae34e3" />
 
-**🐛TRATARÉ DE ENCONTRAR UNA SOLUCIÓN**  
+**PROBLEMA SOLVENTADO**  
+
+<img width="1247" height="534" alt="imagen" src="https://github.com/user-attachments/assets/56527504-0127-4400-ae0a-3f62554841d8" />
+
 
 # 4. Ejecución de la aplicación
 
