@@ -10,7 +10,7 @@
 
 ***Contenido del archivo .dockerignore para una aplicación de Laravel***  
 
-```
+```bash
 # Archivos del sistema operativo
 .DS_Store
 Thumbs.db
@@ -74,7 +74,7 @@ dist/
 
 ## 2. Crear un archivo Dockerfile
 
-```
+```bash
 # Imagen base para crear la imagen personalizada
 FROM php:8.3-fpm-alpine
 
@@ -116,4 +116,66 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Comandos de inicio de la aplicación Laravel
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+```
+
+# 3. Creación de la imagen personalizada
+```bash
+docker image build -t example-app:v1.0 .
+```
+# 4. Ejeución de la aplicación
+
+```bash
+docker container run --rm \
+  --name example-app \
+  -e APP_NAME=Laravel \
+  -e APP_ENV=local \
+  -e APP_KEY=base64:JNDOAJ1EjY9aIN2YqADPn0IcIpIFX1JYl0Sp00G04lc= \
+  -e APP_DEBUG=true \
+  -e APP_URL=http://localhost \
+  -e APP_LOCALE=en \
+  -e APP_FALLBACK_LOCALE=en \
+  -e APP_FAKER_LOCALE=en_US \
+  -e APP_MAINTENANCE_DRIVER=file \
+  -e PHP_CLI_SERVER_WORKERS=4 \
+  -e BCRYPT_ROUNDS=12 \
+  -e LOG_CHANNEL=stack \
+  -e LOG_STACK=single \
+  -e LOG_DEPRECATIONS_CHANNEL=null \
+  -e LOG_LEVEL=debug \
+  -e DB_CONNECTION=mysql \
+  -e DB_HOST=127.0.0.1 \
+  -e DB_PORT=3306 \
+  -e DB_DATABASE=example_app \
+  -e DB_USERNAME=root \
+  -e DB_PASSWORD= \
+  -e SESSION_DRIVER=database \
+  -e SESSION_LIFETIME=120 \
+  -e SESSION_ENCRYPT=false \
+  -e SESSION_PATH=/ \
+  -e SESSION_DOMAIN=null \
+  -e BROADCAST_CONNECTION=log \
+  -e FILESYSTEM_DISK=local \
+  -e QUEUE_CONNECTION=database \
+  -e CACHE_STORE=database \
+  -e MEMCACHED_HOST=127.0.0.1 \
+  -e REDIS_CLIENT=phpredis \
+  -e REDIS_HOST=127.0.0.1 \
+  -e REDIS_PASSWORD=null \
+  -e REDIS_PORT=6379 \
+  -e MAIL_MAILER=log \
+  -e MAIL_SCHEME=null \
+  -e MAIL_HOST=127.0.0.1 \
+  -e MAIL_PORT=2525 \
+  -e MAIL_USERNAME=null \
+  -e MAIL_PASSWORD=null \
+  -e MAIL_FROM_ADDRESS="hello@example.com" \
+  -e MAIL_FROM_NAME="${APP_NAME}" \
+  -e AWS_ACCESS_KEY_ID= \
+  -e AWS_SECRET_ACCESS_KEY= \
+  -e AWS_DEFAULT_REGION=us-east-1 \
+  -e AWS_BUCKET= \
+  -e AWS_USE_PATH_STYLE_ENDPOINT=false \
+  -e VITE_APP_NAME="${APP_NAME}" \
+  -p 8000:8000 \
+  example-app:v1.0
 ```
