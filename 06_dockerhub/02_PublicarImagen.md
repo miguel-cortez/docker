@@ -1,13 +1,5 @@
 # Publicar imagen en Docker Hub
 
-***Repositorio personal***  
-```
-https://hub.docker.com/repositories/miguelcortez01
-```
-
-
-<img width="1917" height="564" alt="imagen" src="https://github.com/user-attachments/assets/a77cb50e-754d-4cbc-a1d5-604b9f978b26" />
-
 ## Autenticación desde la terminal de Ubuntu  
 
 <img width="898" height="250" alt="imagen" src="https://github.com/user-attachments/assets/4be91d41-1cee-4061-9aec-31f6377f8793" />
