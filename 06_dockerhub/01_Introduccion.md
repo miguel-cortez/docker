@@ -10,7 +10,8 @@ Docker Hub es un servicio en la nube proporcionado por Docker que funciona como 
 ## Precios
 
 <img width="1333" height="636" alt="imagen" src="https://github.com/user-attachments/assets/ac1dc7f2-c72f-4c56-a894-416e69f4038a" />  
-![Más información de precios.](https://www.docker.com/pricing/)  
+
+https://www.docker.com/pricing/
 
 ***Detalles de Docker Personal***  
 
