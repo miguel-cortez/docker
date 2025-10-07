@@ -27,5 +27,5 @@
 
 <img width="686" height="678" alt="imagen" src="https://github.com/user-attachments/assets/04938069-95a0-4fa5-acb5-2ac5756049f1" />
 
-
+🤵**Identificación** La cuenta será habilitada por 7 días según las indicaciones dadas por la plataforma. Le peditará configurar su información personal mediante la captura de imágenes de un documento como el DUI y además, fotografía de su rostro. Para ver el contenido del sitio web publicado no necesariamente deberá enviar su información; personal pero es probable que después de 7 días sea obligatorio para disponer de la cuenta.  
 
