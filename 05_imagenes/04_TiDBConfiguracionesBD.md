@@ -22,7 +22,12 @@
 base64 -w 0 isrgrootx1.pem > ca.pem.b64
 ```
 
-ℹ️Yo ejecuté el comando en Windows; pero también se puede ejecutar desde Ubuntu. Durante las prácticas (en capacitación) este comando lo ejecutamos dentro de la carpeta del proyecto y desde la consola de Ubuntu; pero realmente creo que no es necesario porque lo único que necesitamos es reducir el tamaño del certificado original (CA cert) en una cadena más pequeña pero equivalente (base64).  Esta cadena equivalente es la que utilizamos luego en el archivo **.env**  
+**Este es el archivo creado en proceso de conversión**  
+
+<img width="115" height="43" alt="imagen" src="https://github.com/user-attachments/assets/cc78994f-c5b4-4aa5-96ce-7bc956efa2c0" />
+
+
+ℹ️ Yo ejecuté el comando en Windows; pero también se puede ejecutar desde Ubuntu. Durante las prácticas (en capacitación) este comando lo ejecutamos dentro de la carpeta del proyecto y desde la consola de Ubuntu; pero realmente creo que no es necesario porque lo único que necesitamos es reducir el tamaño del certificado original (CA cert) en una cadena más pequeña pero equivalente (base64).  Esta cadena equivalente es la que utilizamos luego en el archivo **.env**  
 
 <img width="653" height="135" alt="imagen" src="https://github.com/user-attachments/assets/22865f09-8c8c-4dd6-af5a-88c50d3f7264" />
 
