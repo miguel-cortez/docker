@@ -1,4 +1,7 @@
 ## db4free.net
+
+⌛ NOTA. ESTE SERVICIO PARACE QUE NO ESTÁ FUNCIONANDO.
+
 https://www.db4free.net/signup.php
 
 Crear una base de datos de prueba
