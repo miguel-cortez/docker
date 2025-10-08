@@ -10,7 +10,6 @@
 
 **Credenciales generadas**  
 
-<img width="653" height="490" alt="imagen" src="https://github.com/user-attachments/assets/6a066f35-8b63-44fc-b4bc-e9a5a87f1efb" />  
-
+<img width="684" height="495" alt="imagen" src="https://github.com/user-attachments/assets/3e0ef896-1c19-420a-ba72-2e821bdcbc13" />
 
 
