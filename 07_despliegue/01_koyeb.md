@@ -29,3 +29,26 @@
 
 🤵**Identificación** La cuenta será habilitada por 7 días según las indicaciones dadas por la plataforma. Le peditará configurar su información personal mediante la captura de imágenes de un documento como el DUI y además, fotografía de su rostro. Para ver el contenido del sitio web publicado no necesariamente deberá enviar su información; personal pero es probable que después de 7 días sea obligatorio para disponer de la cuenta.  
 
+
+🎲 Si el sitio web no s puede ver porque requiere HTTPS debe modificar el archivo **AppServiceProvider.php**  
+
+```
+<?php
+...Omitido...
+use Illuminate\Support\Facades\URL; // LÍNEA AGREGADA
+
+class AppServiceProvider extends ServiceProvider
+{
+    ...Omitido...
+    public function boot(): void
+    {
+        // AGREGAR DESDE AQUÍ
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
+        // HASTA AQUÍ
+
+        Vite::prefetch(concurrency: 3);
+    }
+}
+```
