@@ -68,3 +68,16 @@ La ***clave*** es mucho más grande que el ejemplo mostrado arriba.
 
 ***Listo*** ya puede utilizar la base de datos **test** que creo en **TiDB Cloud**  
 
+💎Durante la capacitación, nosotros creamos las tablas de base de datos con este comando:  
+
+```bash
+mysql --comments --connect-timeout 150 -u '<your_username>' -h <your_cluster_host> -P 4000 -D test --ssl-mode=VERIFY_IDENTITY --ssl-ca=<your_ca_path> -p<your_password> < product_data.sql
+```
+
+Ejemplo completo:  
+```
+mysql --comments --connect-timeout 150 -u '2puvRTdtCXSZp6Z.root' -h gateway01.us-east-1.prod.aws.tidbcloud.com -P 4000 -D test --ssl-mode=VERIFY_IDENTITY --ssl-ca=isrgrootx1.pem -pss8rqUIX4nUONld7 <  product_data.sql
+``` 
+
+
+
