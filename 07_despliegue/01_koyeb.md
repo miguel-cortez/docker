@@ -31,25 +31,60 @@
 
 ## Listo. Pruebe la apliación en nagevador Web.
 
+🔖***SIN ESTILOS CSS*** No presenta estilos CSS. Al ingresar a las ***Opciones de desarrollador*** se puede ver que tampoco carga los archivos JS.  
+
+### Sitio web visto en Google Chrome**
+
+<img width="1918" height="860" alt="imagen" src="https://github.com/user-attachments/assets/10a842d7-e9c9-4d2c-88c4-4a04eda6a02b" />
+
+
+### Sitio web visto en Mozilla Firefox
+
+<img width="1875" height="894" alt="imagen" src="https://github.com/user-attachments/assets/45f334b4-e00b-4f6c-b94e-173accdf0a3c" />
+
+
+
+### Causas del error  
+- Si los estilos CSS no se aplican al sitio web se puede deber a varias razones como: no se ha agregado al contenedor los archivos css y js, problemas de permisos en la carpeta public/build, etc.
+- 🔑 En este caso el error se debe a que ***el sitio web publicado utiliza el protocolo https y los archivos css y js están tratando de cargar mediante el protocolo http***
+
 🎲 Si el sitio web no se puede ver porque requiere **HTTPS** debe modificar el archivo **AppServiceProvider.php** de la aplicación.    
 
-```
+```php
 <?php
-...Omitido...
-use Illuminate\Support\Facades\URL; // LÍNEA AGREGADA
 
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL; // 👈 LÍNEA AGREGADA
 class AppServiceProvider extends ServiceProvider
 {
-    ...Omitido...
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
     public function boot(): void
     {
-        // AGREGAR DESDE AQUÍ
+        Schema::defaultStringLength(191);
+        // ⏬ AGREGAR DESDE AQUÍ
         if (config('app.env') === 'production') {
             URL::forceScheme('https');
         }
-        // HASTA AQUÍ
-
-        Vite::prefetch(concurrency: 3);
+        // 🔼 HASTA AQUÍ
     }
 }
 ```
+
+📚**Nota** Los cambios realizados en **AppServiceProvider.php** obligan a que en entorno de **producción** todos los recursos se carguen mediante el protocolo **https**  
+
+Recuerde que es necesario craer una nueva imagen de Docker y volter a subir y publicar el contenido del sitio web.  
+
+
