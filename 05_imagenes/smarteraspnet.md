@@ -1,3 +1,4 @@
+⌛ PERMITE CREAR UNA BASE DE DATOS DE MYSQL; PERO AL PARECER NO ES COMPATIBLE PARA CONECTARSE DES DE UN PROYECTO DE LARAVEL.  
 <img width="1272" height="646" alt="imagen" src="https://github.com/user-attachments/assets/95807fe4-99df-4b25-9fcb-c28a5515b3ce" />
 
 <img width="889" height="647" alt="imagen" src="https://github.com/user-attachments/assets/f4d271c1-965e-4ffd-9087-83d6b52f7731" />
