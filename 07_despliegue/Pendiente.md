@@ -102,7 +102,7 @@ docker image build -t example_app:v2.0 .
 
 ### Cree una etiqueta compatible para Docker Hub
 ```
-docker tag example-app:v2.0 miguelcortez01/example_app:v2.0
+docker tag example_app:v2.0 miguelcortez01/example_app:v2.0
 ```
 
 ### Suba la imagen a Docker Hub
@@ -111,18 +111,32 @@ docker tag example-app:v2.0 miguelcortez01/example_app:v2.0
 docke push miguelcortez01/example_app:v2.0
 ```
 
-### En Koyeb cambie la imagen y vuelta a aplicar Deploy
+### Cambie las configuraciones de la aplicación (en Koyeb)
 
-En koyeb:  
+<img width="980" height="416" alt="imagen" src="https://github.com/user-attachments/assets/95213517-c1d7-4b6b-ad82-700904327062" />
+
+💡Debe cambiar por ejemplo **miguelcortez01/example_app:v1.0** por **miguelcortez01/example_app:v2.0**  
+
+### Modifique las siguientes variables de entorno 
 
 ```bash
 APP_DEBUG: false
 APP_ENV: production
 APP_URL: https://limited-kiri-macvorganization-5368fa94.koyeb.app/
 LOG_LEVEL: info
-SESSION_SECURE_COOKIE=true // ⚙ NUEVA VARIABLE
+SESSION_SECURE_COOKIE=true // 🔖 ES ES VARIABLE NUEVA
 ```
 
+📚 La URL `https://limited-kiri-macvorganization-5368fa94.koyeb.app/` solo es un ejemplo.
+
+<img width="835" height="471" alt="imagen" src="https://github.com/user-attachments/assets/497d6861-e8a0-4d86-8763-9cb84a6a465e" />
+
+### Guarde y despliegue la aplicación
+
+<img width="950" height="297" alt="imagen" src="https://github.com/user-attachments/assets/a1623393-23b1-4ed4-9c05-43852d2cd112" />
+
+
+## Paso 5. Pruebe nuevamente la aplicación en el navegador web
 
 <img width="996" height="653" alt="imagen" src="https://github.com/user-attachments/assets/0ab16c05-a670-4e67-bb08-4fb75381398c" />
 
