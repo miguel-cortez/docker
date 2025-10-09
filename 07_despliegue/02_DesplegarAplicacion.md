@@ -1,19 +1,32 @@
-## Desplegar una aplicación  
+# Desplegar una aplicación en Koyeb.com
 
-**Cree un nuevo servicio de Docker**  
-<img width="943" height="437" alt="imagen" src="https://github.com/user-attachments/assets/0e1c1683-118f-46d6-88ae-9129ee700c89" />
+## Paso 1. Inicie sesión en Koyeb.com
 
-**Escriba el nombre del imagen que quiere desplegar**  
+## Paso 2. Cree un nuevo servicio
+<img width="1358" height="474" alt="imagen" src="https://github.com/user-attachments/assets/306c7b9c-6718-4d27-a8d3-fb9aed08db0c" />
 
-<img width="913" height="402" alt="imagen" src="https://github.com/user-attachments/assets/64807f33-3f24-4c64-a7da-22c33ee67441" />  
+### Importe el proyecto
 
-**Seleccione el plan CPU Eco**  
+En la parte derecha de **Image** debe escribir el nombre de la imagen que quiere importar desde **Docker Hub**. En el ejemplo se está importando la imagen **miguelcortez01/example_app:v1.0**. Koyeb determinará si la imagen está disponible, en tal caso, se mostrará el mensaje ***The image is accessible***  
 
-<img width="703" height="682" alt="imagen" src="https://github.com/user-attachments/assets/745bbdd3-46f2-4acb-920c-cc366e734d36" />
+<img width="1084" height="544" alt="imagen" src="https://github.com/user-attachments/assets/27d399f4-ffde-491b-86a3-17007e837fce" />
 
-**Configure las variables de entorno y haga clic en Deploy**  
 
-<img width="686" height="678" alt="imagen" src="https://github.com/user-attachments/assets/04938069-95a0-4fa5-acb5-2ac5756049f1" />
+## Seleccione la instancia y región
+
+<img width="1180" height="675" alt="imagen" src="https://github.com/user-attachments/assets/03f9161a-5e14-4133-9a78-7832097d5fd7" />
+
+## Configure las variables de entorno y haga clic en Deploy 
+
+<img width="1361" height="674" alt="imagen" src="https://github.com/user-attachments/assets/96cb48ba-c933-4c1a-a645-b9f564c7bad0" />
+
+<img width="680" height="405" alt="imagen" src="https://github.com/user-attachments/assets/7e2cd678-0209-4876-acfb-54a31aff77fb" />
+
+<img width="1364" height="655" alt="imagen" src="https://github.com/user-attachments/assets/08e941a5-b9d7-4fc0-af2e-29f87371e23b" />
+
+<img width="1361" height="653" alt="imagen" src="https://github.com/user-attachments/assets/003605dd-0029-4920-aeae-a83f5beb2ef7" />
+
+
 
 🤵**Identificación** La cuenta será habilitada por 7 días según las indicaciones dadas por la plataforma. Le peditará configurar su información personal mediante la captura de imágenes de un documento como el DUI y además, fotografía de su rostro. Para ver el contenido del sitio web publicado no necesariamente deberá enviar su información; personal pero es probable que después de 7 días sea obligatorio para disponer de la cuenta.  
 
@@ -75,4 +88,16 @@ class AppServiceProvider extends ServiceProvider
 
 Recuerde que es necesario craer una nueva imagen de Docker y volter a subir y publicar el contenido del sitio web.  
 
+En koyeb:  
+
+```bash
+APP_DEBUG: false
+APP_ENV: production
+APP_URL: https://limited-kiri-macvorganization-5368fa94.koyeb.app/
+LOG_LEVEL: info
+SESSION_SECURE_COOKIE=true // ⚙ NUEVA VARIABLE
+```
+
+
+<img width="996" height="653" alt="imagen" src="https://github.com/user-attachments/assets/0ab16c05-a670-4e67-bb08-4fb75381398c" />
 
