@@ -102,10 +102,16 @@ docker image build -t example_app:v2.0 .
 
 ### Cree una etiqueta compatible para Docker Hub
 ```
-doc
+docker tag example-app:v2.0 miguelcortez01/example_app:v2.0
 ```
 
-### 
+### Suba la imagen a Docker Hub
+
+```
+docke push miguelcortez01/example_app:v2.0
+```
+
+### En Koyeb cambie la imagen y vuelta a aplicar Deploy
 
 En koyeb:  
 
