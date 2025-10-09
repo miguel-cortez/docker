@@ -107,8 +107,8 @@ docker tag example_app:v2.0 miguelcortez01/example_app:v2.0
 
 ### Suba la imagen a Docker Hub
 
-```
-docke push miguelcortez01/example_app:v2.0
+```bash
+docker push miguelcortez01/example_app:v2.0
 ```
 
 ### Cambie las configuraciones de la aplicación (en Koyeb)
