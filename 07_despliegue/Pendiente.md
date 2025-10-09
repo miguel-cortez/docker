@@ -27,9 +27,14 @@ En la parte derecha de **Image** debe escribir el nombre de la imagen que quiere
 
 <img width="980" height="470" alt="imagen" src="https://github.com/user-attachments/assets/ba4b3b8d-9533-4c96-bf9e-3cc374bef381" />
 
-## Listo. Pruebe la apliación en nagevador Web.
+## Paso 3. Pruebe la apliación en nagevador Web. 
 
-🔖***SIN ESTILOS CSS*** No presenta estilos CSS. Al ingresar a las ***Opciones de desarrollador*** se puede ver que tampoco carga los archivos JS.  
+***Haga clic en el link que le generó de manera automática como se ve en la siguiente imagen***  
+
+<img width="518" height="80" alt="imagen" src="https://github.com/user-attachments/assets/b359d6b2-5b19-43ee-a083-fabeb9412c91" />
+
+
+🔖***NO APLICA LOS ESTILOS DE CSS***. Al ingresar a las **Herramientas para desarrolladores*** se puede ver que tampoco carga los archivos de Javascript (js).   
 
 ### Sitio web visto en Google Chrome**
 
@@ -45,6 +50,10 @@ En la parte derecha de **Image** debe escribir el nombre de la imagen que quiere
 ### Causas del error  
 - Si los estilos CSS no se aplican al sitio web se puede deber a varias razones como: no se ha agregado al contenedor los archivos css y js, problemas de permisos en la carpeta public/build, etc.
 - 🔑 En este caso el error se debe a que ***el sitio web publicado utiliza el protocolo https y los archivos css y js están tratando de cargar mediante el protocolo http***
+
+## Paso 4. Solución del error de estilos y carga de JS.
+
+### Modifique el archivo AppServiceProvider.ph
 
 🎲 Si el sitio web no se puede ver porque requiere **HTTPS** debe modificar el archivo **AppServiceProvider.php** de la aplicación.    
 
@@ -83,7 +92,20 @@ class AppServiceProvider extends ServiceProvider
 
 📚**Nota** Los cambios realizados en **AppServiceProvider.php** obligan a que en entorno de **producción** todos los recursos se carguen mediante el protocolo **https**  
 
-Recuerde que es necesario craer una nueva imagen de Docker y volter a subir y publicar el contenido del sitio web.  
+### Construya nuevamente la imagen de docker.
+
+***Ejemplo:***
+
+```
+docker image build -t example_app:v2.0 .
+```
+
+### Cree una etiqueta compatible para Docker Hub
+```
+doc
+```
+
+### 
 
 En koyeb:  
 
