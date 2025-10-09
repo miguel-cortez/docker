@@ -15,13 +15,16 @@ En la parte derecha de **Image** debe escribir el nombre de la imagen que quiere
 
 ## Seleccione la instancia y región
 
-<img width="1180" height="675" alt="imagen" src="https://github.com/user-attachments/assets/03f9161a-5e14-4133-9a78-7832097d5fd7" />
+<img width="935" height="535" alt="imagen" src="https://github.com/user-attachments/assets/45b66c8c-0e2c-429f-9fe3-bd27f7731364" />
+
 
 ## Configure las variables de entorno y haga clic en Deploy 
 
-<img width="1361" height="674" alt="imagen" src="https://github.com/user-attachments/assets/96cb48ba-c933-4c1a-a645-b9f564c7bad0" />
+<img width="980" height="485" alt="imagen" src="https://github.com/user-attachments/assets/49d2045c-b66b-43e2-b3a3-cdf587eaef21" />
 
-<img width="680" height="405" alt="imagen" src="https://github.com/user-attachments/assets/7e2cd678-0209-4876-acfb-54a31aff77fb" />
+### Copie todo el contenido del archivo .env y pegue en el cuadro de diálogo siguiente:  
+<img width="849" height="506" alt="imagen" src="https://github.com/user-attachments/assets/5020b2c9-c0f5-454d-8409-783b47158045" />
+
 
 <img width="1364" height="655" alt="imagen" src="https://github.com/user-attachments/assets/08e941a5-b9d7-4fc0-af2e-29f87371e23b" />
 
