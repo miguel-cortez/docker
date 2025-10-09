@@ -271,5 +271,5 @@ http://localhost:8000/
 
 ***Esta sería una forma más práctica de ejecutar la aplicación y el resultado sería el mismo***  
 ```
-docker container run --rm   --name example-app   --env-file .env  -p 8000:8000   example-app:v1.0
+docker container run --rm --name example-app --env-file .env -p 8000:8000 example-app:v1.0
 ```
