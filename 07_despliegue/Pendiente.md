@@ -25,14 +25,7 @@ En la parte derecha de **Image** debe escribir el nombre de la imagen que quiere
 ### Copie todo el contenido del archivo .env y pegue en el cuadro de diálogo siguiente:  
 <img width="849" height="506" alt="imagen" src="https://github.com/user-attachments/assets/5020b2c9-c0f5-454d-8409-783b47158045" />
 
-
-<img width="1364" height="655" alt="imagen" src="https://github.com/user-attachments/assets/08e941a5-b9d7-4fc0-af2e-29f87371e23b" />
-
-<img width="1361" height="653" alt="imagen" src="https://github.com/user-attachments/assets/003605dd-0029-4920-aeae-a83f5beb2ef7" />
-
-
-
-🤵**Identificación** La cuenta será habilitada por 7 días según las indicaciones dadas por la plataforma. Le peditará configurar su información personal mediante la captura de imágenes de un documento como el DUI y además, fotografía de su rostro. Para ver el contenido del sitio web publicado no necesariamente deberá enviar su información; personal pero es probable que después de 7 días sea obligatorio para disponer de la cuenta.  
+<img width="980" height="470" alt="imagen" src="https://github.com/user-attachments/assets/ba4b3b8d-9533-4c96-bf9e-3cc374bef381" />
 
 ## Listo. Pruebe la apliación en nagevador Web.
 
