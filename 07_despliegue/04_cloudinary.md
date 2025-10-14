@@ -16,12 +16,14 @@ Ingrese al **https://cloudinary.com/** y cree una cuenta haciendo clic en **GET 
 composer require cloudinary-labs/cloudinary-laravel
 ```
 
-<img width="1104" height="612" alt="imagen" src="https://github.com/user-attachments/assets/06a5305b-721f-4021-9ba6-359c820f8c1b" />
+<img width="1104" height="612" alt="500677302-06a5305b-721f-4021-9ba6-359c820f8c1b" src="https://github.com/user-attachments/assets/4ea2cc27-118f-4dd8-a55e-413f7ec6eb1c" />
+
 
 ```bash
 php artisan cloudinary:install
 ```
-<img width="841" height="487" alt="imagen" src="https://github.com/user-attachments/assets/ea688b39-4b91-426b-99a3-ae2216e8f8f7" />
+<img width="841" height="487" alt="500677523-ea688b39-4b91-426b-99a3-ae2216e8f8f7" src="https://github.com/user-attachments/assets/3fc56934-4615-453c-8563-7f28463d81b0" />
+
 
 
 ## Modifique el archivo config/filesystems.php
