@@ -28,7 +28,7 @@ php artisan cloudinary:install
 
 ## Modifique el archivo config/filesystems.php
 
-<details open>
+<details close>
 <summary>config/filesystems.php (ORIGINAL)</summary>
 <pre>
 <?php
