@@ -1,6 +1,6 @@
 # Cloudinary
 
-## Crear cuenta
+## 1. Crear cuenta
 
 Ingrese al **https://cloudinary.com/** y cree una cuenta haciendo clic en **GET STARTER** y luego en **SIGN UP WITH EMAIL**  
 
@@ -10,7 +10,7 @@ Ingrese al **https://cloudinary.com/** y cree una cuenta haciendo clic en **GET 
 <img width="647" height="588" alt="imagen" src="https://github.com/user-attachments/assets/942ea829-3a34-476a-801e-b857d2da19f2" />
 
 
-## Instalación de paquete
+## 2. Instalación de paquete
 
 ```bash
 composer require cloudinary-labs/cloudinary-laravel
@@ -26,7 +26,7 @@ php artisan cloudinary:install
 
 
 
-## Modifique el archivo config/filesystems.php
+## 3. Modifique el archivo config/filesystems.php
 
 <details close>
 <summary>config/filesystems.php (ORIGINAL)</summary>
@@ -158,15 +158,17 @@ return [
 ];
 ```
 
-## Copie CLOUDINARY_URL
+## 4. Obtenga información de las credenciales
 
-<img width="740" height="208" alt="imagen" src="https://github.com/user-attachments/assets/9f0db08e-c17f-4701-85a1-ac06ca493bad" />
+📚 **Nota** Puede obtener los valores de las siguientes variables: CLOUDINARY_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_KEY, CLOUDINARY_SECRET pero en este ejemplo solo se está utilizando **CLOUDINARY_URL**.
 
-<img width="740" height="241" alt="imagen" src="https://github.com/user-attachments/assets/69a80559-5cd0-40a6-83eb-3cbf40be73b6" />
+<img width="740" height="208" alt="imagen" src="https://github.com/user-attachments/assets/9f0db08e-c17f-4701-85a1-ac06ca493bad" />  
 
-<img width="716" height="355" alt="imagen" src="https://github.com/user-attachments/assets/e907eddf-e75d-4319-9f1e-1580b1c8f16b" />
+<img width="740" height="241" alt="imagen" src="https://github.com/user-attachments/assets/69a80559-5cd0-40a6-83eb-3cbf40be73b6" />  
 
-<img width="719" height="364" alt="imagen" src="https://github.com/user-attachments/assets/739d4abb-21d0-4842-97e8-9b900c0d7104" />
+<img width="716" height="355" alt="imagen" src="https://github.com/user-attachments/assets/e907eddf-e75d-4319-9f1e-1580b1c8f16b" />  
+
+<img width="719" height="364" alt="imagen" src="https://github.com/user-attachments/assets/739d4abb-21d0-4842-97e8-9b900c0d7104" />  
 
 
 ## Modifique el archivo .env
@@ -182,3 +184,12 @@ FILESYSTEM_DISK=cloudinary  // 👈LINEA MODIFICADA. El valor original era local
 CLOUDINARY_URL=cloudinary://467478xxxxxxxxxxxxxxxxxxxx4UcSKo@dpj56vjfn // 👈LÍNEA AGREGADA. SE OBTIENE DE CLOUDINARY (PASO ANTERIOR)
 
 ```
+
+<details close>
+<summary>Otras variables (NO SE HAN UTILIZADO)</summary>
+<pre>
+CLOUDINARY_CLOUD_NAME=dpxxxxxxxvjfn
+CLOUDINARY_KEY=46xxxxxxxxxx7173
+CLOUDINARY_SECRET=bO5dxxxxxxxxxxxx_v4UcSKo
+</pre>
+</details>
