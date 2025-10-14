@@ -111,6 +111,7 @@ return [
     ],
 
 ];
+```
 
 
 ### config/filesystems.php (MODIFICADO)
@@ -153,4 +154,4 @@ return [
     // ✂️ CÓDIGO OMITIDO
 
 ];
-
+```
