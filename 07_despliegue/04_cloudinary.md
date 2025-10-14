@@ -164,12 +164,9 @@ return [
 
 <img width="740" height="208" alt="imagen" src="https://github.com/user-attachments/assets/9f0db08e-c17f-4701-85a1-ac06ca493bad" />  
 
-
 <img width="740" height="241" alt="imagen" src="https://github.com/user-attachments/assets/69a80559-5cd0-40a6-83eb-3cbf40be73b6" />  
-<img width="76" height="28" alt="imagen" src="https://github.com/user-attachments/assets/26afa65d-86a7-4ccc-8332-6e19399e2bec" />
 
 <img width="716" height="355" alt="imagen" src="https://github.com/user-attachments/assets/e907eddf-e75d-4319-9f1e-1580b1c8f16b" />  
-<img width="76" height="28" alt="imagen" src="https://github.com/user-attachments/assets/3138ebc5-e248-4e96-b98a-653cdd78b0da" />
 
 <img width="719" height="364" alt="imagen" src="https://github.com/user-attachments/assets/739d4abb-21d0-4842-97e8-9b900c0d7104" />  
 
