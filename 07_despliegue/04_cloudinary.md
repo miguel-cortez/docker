@@ -171,7 +171,7 @@ return [
 <img width="719" height="364" alt="imagen" src="https://github.com/user-attachments/assets/739d4abb-21d0-4842-97e8-9b900c0d7104" />  
 
 
-## Modifique el archivo .env
+## 5. Modifique el archivo .env
 
 ```
 APP_NAME=Laravel
@@ -193,3 +193,69 @@ CLOUDINARY_KEY=46xxxxxxxxxx7173
 CLOUDINARY_SECRET=bO5dxxxxxxxxxxxx_v4UcSKo
 </pre>
 </details>
+
+## 6. Agregue la función para subir archivos
+
+### ProductoController.php
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+// ✂️ código omitido
+use Illuminate\Support\Facades\Storage; // ➕LÍNEA AGREGADA
+class ProductoController extends Controller
+{
+    // ✂️ código omitido
+    public function upload(Request $request){
+        try{
+            $info = array();
+            //foreach ($request["image"] as $img){
+            if($request->hasFile("image")){
+                foreach ($request["image"] as $img){
+                    $filename = Carbon::now()->timestamp . '_' . rand(1000, 9999) . '.' . $img->extension();
+                    if (config('filesystems.default') === 'cloudinary') {
+                        Storage::disk('cloudinary')->putFileAs('images/productos/', $img, $filename);
+                    } else {
+                        $img->move(public_path("images/productos"), $filename);
+                    }
+                    $producto = Producto::find($request["producto_id"]);
+                    $producto->imagen = $filename;
+                    $producto->save();
+                    $info[] = $filename;
+                }
+                return response()->json(["data"=> $info, "message"=>"La imagen se ha guardado"],200);
+            }else{
+                return response()->json(["data"=> "No se han recibido archivos", "message"=>"Datos incompletos"],500);
+            }
+        }catch(\Exception $e){
+            return response()->json(["data"=> null, "message"=>$e->getMessage()],422);
+        } 
+    }
+}
+```
+📚 **Notas**  
+- `if (config('filesystems.default') === 'cloudinary')` retorna **true** si la variable `FILESYSTEM_DISK` tiene el valor **cloudinary** en el archivo `.env`
+- `Storage::disk('cloudinary')->putFileAs('images/productos/', $img, $filename);` guarda el archivo en `Cloudinary`
+- Por el momento, el archivo no se guarda en `images/productos/` sino en `Home` de `Cloudinary` (⚠️ PENDIENTE DE REVISAR).
+- `$img->move(public_path("images/productos"), $filename);` guarda el archivo en la carpeta `public/images/productos/` en la carpeta del proyecto local.
+- Esta es la ruta **API** definida en **api.php** `Route::post('/dashboard/productos/upload', [ProductoController::class, 'upload']);` 
+
+## 7. Pruebe la aplicación
+
+Ejecutar la aplicación localmente.  
+
+```
+php artisan serve
+npm run dev
+```
+
+⚠️**Alerta** No se pueden subir archivos a cloudinary.  
+
+<img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
+
+**Más información del error**  
+<img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
+
+ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones (⚠️ pendiente).  
