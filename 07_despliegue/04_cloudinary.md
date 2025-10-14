@@ -28,9 +28,9 @@ php artisan cloudinary:install
 
 ## Modifique el archivo config/filesystems.php
 
-### config/filesystems.php (ORIGINAL)
-
-```php
+<details open>
+<summary>config/filesystems.php (ORIGINAL)</summary>
+<pre>
 <?php
 
 return [
@@ -111,7 +111,9 @@ return [
     ],
 
 ];
-```
+</pre>
+</details>
+
 
 
 ### config/filesystems.php (MODIFICADO)
