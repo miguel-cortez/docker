@@ -155,3 +155,29 @@ return [
 
 ];
 ```
+
+## Copie CLOUDINARY_URL
+
+<img width="740" height="208" alt="imagen" src="https://github.com/user-attachments/assets/9f0db08e-c17f-4701-85a1-ac06ca493bad" />
+
+<img width="740" height="241" alt="imagen" src="https://github.com/user-attachments/assets/69a80559-5cd0-40a6-83eb-3cbf40be73b6" />
+
+<img width="716" height="355" alt="imagen" src="https://github.com/user-attachments/assets/e907eddf-e75d-4319-9f1e-1580b1c8f16b" />
+
+<img width="719" height="364" alt="imagen" src="https://github.com/user-attachments/assets/739d4abb-21d0-4842-97e8-9b900c0d7104" />
+
+
+## Modifique el archivo .env
+
+```
+APP_NAME=Laravel
+APP_ENV=local
+// ✂️CÓDIGO OMITIDO
+#FILESYSTEM_DISK=local
+FILESYSTEM_DISK=cloudinary  // 👈EQUIVALE A LA LÍNEA ANTERIOR PERO PARA USAR CLOUDINARY, NO ALMACENAMIENTO LOCAL.
+// ✂️ CÓDIGO OMITIDO
+
+# Cloudinary
+CLOUDINARY_URL=cloudinary://467478xxxxxxxxxxxxxxxxxxxx4UcSKo@dpj56vjfn // 👈ESTA LÍEA LA OBTIENE DE CLOUDINARY.COM (DEL DASHBOARD).
+
+```
