@@ -248,6 +248,8 @@ class ProductoController extends Controller
 
 ## 7. Agregue una función remove() en ProductoController
 
+### ProductoController.php
+
 ```php
 <?php
 
@@ -292,21 +294,19 @@ class ProductoController extends Controller
 }
 ```
 
-## 8. Pruebe la aplicación
+## 8. Ejecute la aplicación
 
-Ejecutar la aplicación localmente.  
-
-```
+```php
 php artisan serve
 npm run dev
 ```
 
-- **⭐ ALERTA** No se pueden subir archivos a cloudinary (NO HAY PROBLEMA PORQUE SI DESPLIEGA LA APLICACIÓN EN KOYEB.COM SÍ FUNCIONA). 👁️‍🗨️Vaya al siguiente paso.  
+> **⭐ ALERTA** No se pueden subir archivos a `cloudinary` cuando la aplicación se ejecuta de forma local (no desplegada). Es probable que se pueda pero modificando alguna política de seguridad. Esto representaría un problema de seguridad para la aplicación y solo podría hacerlo para realizar prueba en entorno de desarrollo.  
 
-<img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
+><img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
 
 **Más información del error**  
-<img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
+><img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
 
 ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
 
