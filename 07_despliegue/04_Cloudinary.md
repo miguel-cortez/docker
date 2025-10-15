@@ -253,11 +253,54 @@ php artisan serve
 npm run dev
 ```
 
-⚠️**Alerta** No se pueden subir archivos a cloudinary.  
+- **⭐ ALERTA** No se pueden subir archivos a cloudinary (NO HAY PROBLEMA PORQUE SI DESPLIEGA LA APLICACIÓN EN KOYEB.COM SÍ FUNCIONA). 👁️‍🗨️Vaya al siguiente paso.  
 
 <img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
 
 **Más información del error**  
 <img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
 
-ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones (⚠️ pendiente).  
+ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
+
+## 8. Construya una imagen de Docker y publíquela en Docker Hub
+
+📚 **Nota** Recuerde que usted puede asignar un nombre de imagen y etiqueta según su conveniencia. 
+
+<pre>
+        nombre   : etiqueta
+          ↓      :  ↓
+      example-app:v2.0
+</pre>
+
+### 8.1 Construir la imagen
+
+```
+docker image build -t example-app:v2.0 .
+```
+
+### 8.2 Asignar etiqueta compatible con Docker Hub
+```
+docker tag example-app:v2.0 miguelcortez01/example-app:v2.0
+```
+### 8.3 Subir la imagen a Docker Hub
+
+```
+docker push miguelcortez01/example-app:v2.0
+```
+
+## 9. Despliegue la nueva aplicación en Koyeb.com
+
+### 9.1 Configure variables en Koyeb (Environment variables and files)
+
+><img width="788" height="38" alt="imagen" src="https://github.com/user-attachments/assets/6beaad81-4667-45ad-8f4a-70fd221285ff" />
+
+➕ La variable `CLOUDINARY_URL` no existe y debe agregarla (**➕ Add another**)    
+><img width="785" height="41" alt="imagen" src="https://github.com/user-attachments/assets/628ac6a5-74b1-499b-817a-b32d6a37c9a6" />  
+
+### 9.2 Agregue la imagen de docker que quiere desplegar (source)
+<img width="853" height="875" alt="imagen" src="https://github.com/user-attachments/assets/349cdeff-185e-4e20-9429-31673f415070" />  
+
+### 9.3 Despliegue la aplicación (save and deploy).
+
+
+
