@@ -194,6 +194,8 @@ CLOUDINARY_SECRET=bO5dxxxxxxxxxxxx_v4UcSKo
 </pre>
 </details>
 
+📚 **Nota** Al publicar el sitio web en **koyeb.com** debe modificar la variable `FILESYSTEM_DISK` con el valor `cloudinary` y además, debe agregar la variable `CLOUDINARY_URL` con el valor **CLOUDINARY_URL** obtenido de su cuenta personal.  
+
 ## 6. Agregue la función para subir archivos
 
 ### ProductoController.php
