@@ -196,7 +196,7 @@ CLOUDINARY_SECRET=bO5dxxxxxxxxxxxx_v4UcSKo
 
 📚 **Nota** Al publicar el sitio web en **koyeb.com** debe modificar la variable `FILESYSTEM_DISK` con el valor `cloudinary` y además, debe agregar la variable `CLOUDINARY_URL` con el valor **CLOUDINARY_URL** obtenido de su cuenta personal.  
 
-## 6. Agregue la función para subir archivos
+## 6. Agregue la función upload() en ProductoController
 
 ### ProductoController.php
 
@@ -210,6 +210,7 @@ use Illuminate\Support\Facades\Storage; // ➕LÍNEA AGREGADA
 class ProductoController extends Controller
 {
     // ✂️ código omitido
+    // 👉DESDE AQUÍ
     public function upload(Request $request){
         try{
             $info = array();
@@ -235,6 +236,7 @@ class ProductoController extends Controller
             return response()->json(["data"=> null, "message"=>$e->getMessage()],422);
         } 
     }
+// 👈HASTA AQUÍ
 }
 ```
 📚 **Notas**  
@@ -242,9 +244,55 @@ class ProductoController extends Controller
 - `Storage::disk('cloudinary')->putFileAs('images/productos/', $img, $filename);` guarda el archivo en `Cloudinary`
 - Por el momento, el archivo no se guarda en `images/productos/` sino en `Home` de `Cloudinary` (⚠️ PENDIENTE DE REVISAR).
 - `$img->move(public_path("images/productos"), $filename);` guarda el archivo en la carpeta `public/images/productos/` en la carpeta del proyecto local.
-- Esta es la ruta **API** definida en **api.php** `Route::post('/dashboard/productos/upload', [ProductoController::class, 'upload']);` 
+- Esta es la ruta **API** definida en **api.php** `Route::post('/dashboard/productos/upload', [ProductoController::class, 'upload']);`
 
-## 7. Pruebe la aplicación
+## 7. Agregue una función remove() en ProductoController
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+// ✂️ CÓDIGO OMITIDO
+use Illuminate\Support\Facades\Storage;
+class ProductoController extends Controller
+{
+    // ✂️ CÓDIGO OMITIDO
+    public function upload(Request $request){
+        // ✂️CÓDIGO OMITIDO
+    }
+    // 👉 DESDE AQUÍ
+    public function remove(Request $request){
+        try{
+            $producto = Producto::find($request["id"]);
+            if($producto){
+                $filename = $producto->imagen;
+                $producto->imagen = null;
+                $producto->save();
+                if (config('filesystems.default') === 'cloudinary') {
+                    $filePath = 'images/productos/' . $filename;
+                    Storage::disk('cloudinary')->delete($filePath);
+                    return response()->json(["data"=> $filePath, "message"=>"Imagen eliminada"],200);
+                } else {
+                    $filePath = public_path('images/productos/'.$filename);
+                    if (File::exists($filePath)) {
+                        File::delete($filePath);
+                        return response()->json(["data"=> $filePath, "message"=>"Imagen eliminada"],200);
+                    } else {
+                        return response()->json(["data"=> $filePath, "message"=>"Imagen no encontrada"],404);
+                    }
+                }
+            }else{
+                return response()->json(["data"=> "Producto no encontrado", "message"=>"Imagen no eliminada"],404);
+            }
+        }catch(\Exception $e){
+            return response()->json(["data"=> null, "message"=>$e->getMessage()],422);
+        }
+    }
+    // 👈HASTA AQUÍ
+}
+```
+
+## 8. Pruebe la aplicación
 
 Ejecutar la aplicación localmente.  
 
@@ -262,7 +310,7 @@ npm run dev
 
 ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
 
-## 8. Construya una imagen de Docker y publíquela en Docker Hub
+## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
 📚 **Nota** Recuerde que usted puede asignar un nombre de imagen y etiqueta según su conveniencia. 
 
@@ -272,35 +320,35 @@ npm run dev
       example-app:v2.0
 </pre>
 
-### 8.1 Construir la imagen
+### 9.1 Construir la imagen
 
 ```
 docker image build -t example-app:v2.0 .
 ```
 
-### 8.2 Asignar etiqueta compatible con Docker Hub
+### 9.2 Asignar etiqueta compatible con Docker Hub
 ```
 docker tag example-app:v2.0 miguelcortez01/example-app:v2.0
 ```
-### 8.3 Subir la imagen a Docker Hub
+### 9.3 Subir la imagen a Docker Hub
 
 ```
 docker push miguelcortez01/example-app:v2.0
 ```
 
-## 9. Despliegue la nueva aplicación en Koyeb.com
+## 10. Despliegue la nueva aplicación en Koyeb.com
 
-### 9.1 Configure variables en Koyeb (Environment variables and files)
+### 10.1 Configure variables en Koyeb (Environment variables and files)
 
 ><img width="788" height="38" alt="imagen" src="https://github.com/user-attachments/assets/6beaad81-4667-45ad-8f4a-70fd221285ff" />
 
 ➕ La variable `CLOUDINARY_URL` no existe y debe agregarla (**➕ Add another**)    
 ><img width="785" height="41" alt="imagen" src="https://github.com/user-attachments/assets/628ac6a5-74b1-499b-817a-b32d6a37c9a6" />  
 
-### 9.2 Agregue la imagen de docker que quiere desplegar (source)
+### 10.2 Agregue la imagen de docker que quiere desplegar (source)
 <img width="853" height="875" alt="imagen" src="https://github.com/user-attachments/assets/349cdeff-185e-4e20-9429-31673f415070" />  
 
-### 9.3 Despliegue la aplicación (save and deploy).
+### 10.3 Despliegue la aplicación (save and deploy).
 
 
 
