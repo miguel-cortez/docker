@@ -314,11 +314,9 @@ npm run dev
 
 📚 **Nota** Recuerde que usted puede asignar un nombre de imagen y etiqueta según su conveniencia. 
 
-<pre>
-        nombre   : etiqueta
-          ↓      :  ↓
-      example-app:v2.0
-</pre>
+><img width="479" height="230" alt="imagen" src="https://github.com/user-attachments/assets/341c1884-f95d-4ce5-ba78-8ae02e84fd9c" />
+
+
 
 ### 9.1 Construir la imagen
 
