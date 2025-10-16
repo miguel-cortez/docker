@@ -335,6 +335,9 @@ Storage::disk('cloudinary')->put('test.txt', 'test content');
 "cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://api.cloudinary.com/v1_1/dpj56vjfn/image/upload"
 ```
 
+<img width="1438" height="181" alt="imagen" src="https://github.com/user-attachments/assets/d808383d-2c71-4f0d-b735-3425beb71f43" />
+
+
 ## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
 ### 9.1 Construir la imagen
