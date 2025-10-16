@@ -153,13 +153,53 @@ Ahora el mensaje ha cambiado por `cURL error 60: SSL certificate problem: unable
 También el mensaje de error ha cambiado por `cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://api.cloudinary.com/v1_1/dpj56vjfn/raw/upload` (visto en la pestaña Respuesta).    
 
 ## FINALMENTE ... LA SOLUCIÓN
-🔑 Se debe descargar el certificado **cacert.pem** desde **https://curl.se/ca/cacert.pem** y configurarlo en **php.ini** de la versión de PHP que está utilizando el proyecto de Laravel.  
+🔑 Se debe descargar el certificado **cacert.pem** desde **https://curl.se/ca/cacert.pem** y configurarlo en **php.ini** de la versión de PHP que está utilizando el proyecto de Laravel. Yo guardé el archivo **cacert.pem** en el directorio **c:\cacert**  
+
+<details>
+    <summary>Contenido parcial de cacert.pem</summary>
+    <pre>
+    ##
+    ## Bundle of CA Root Certificates
+    ##
+    ## Certificate data from Mozilla as of: Tue Sep  9 03:12:01 2025 GMT
+    ##
+    ## Find updated versions here: https://curl.se/docs/caextract.html
+    ##
+    ## This is a bundle of X.509 certificates of public Certificate Authorities
+    ## (CA). These were automatically extracted from Mozilla's root certificates
+    ## file (certdata.txt).  This file can be found in the mozilla source tree:
+    ## https://raw.githubusercontent.com/mozilla-firefox/firefox/refs/heads/release/security/nss/lib/ckfw/builtins/certdata.txt
+    ##
+    ## It contains the certificates in PEM format and therefore
+    ## can be directly used with curl / libcurl / php_curl, or with
+    ## an Apache+mod_ssl webserver for SSL client authentication.
+    ## Just configure this file as the SSLCACertificateFile.
+    ##
+    ## Conversion done with mk-ca-bundle.pl version 1.29.
+    ## SHA256: 0078e6bdd280fd89e1b883174387aae84b3eae2ee263416a5f8a14ee7f179ae9
+    ##
+    
+    
+    Entrust Root Certification Authority
+    ====================================
+    -----BEGIN CERTIFICATE-----
+    MIIEkTCCA3mgAwIBAgIERWtQVDANBgkqhkiG9w0BAQUFADCBsDELMAkGA1UEBhMCVVMxFjAUBgNV
+    BAoTDUVudHJ1c3QsIEluYy4xOTA3BgNVBAsTMHd3dy5lbnRydXN0Lm5ldC9DUFMgaXMgaW5jb3Jw
+    b3JhdGVkIGJ5IHJlZmVyZW5jZTEfMB0GA1UECxMWKGMpIDIwMDYgRW50cnVzdCwgSW5jLjEtMCsG
+    A1UEAxMkRW50cnVzdCBSb290IENlcnRpZmljYXRpb24gQXV0aG9yaXR5MB4XDTA2MTEyNzIwMjM0
+    MloXDTI2MTEyNzIwNTM0MlowgbAxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1FbnRydXN0LCBJbmMu
+    MTkwNwYDVQQLEzB3d3cuZW50cnVzdC5uZXQvQ1BTIGlzIGluY29ycG9yYXRlZCBieSByZWZlcmVu
+    Y2UxHzAdBgNVBAsTFihjKSAyMDA2IEVudHJ1c3QsIEluYy4xLTArBgNVBAMTJEVudHJ1c3QgUm9v
+    dCBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+    </pre>
+</details>
+
 
 ***Contenido parcial de php.ini antes de la modificación***  
-<img width="1292" height="726" alt="imagen" src="https://github.com/user-attachments/assets/b4530dd2-d3ca-48a0-bb9a-dfbc1e2e13db" />
+><img width="1292" height="726" alt="imagen" src="https://github.com/user-attachments/assets/b4530dd2-d3ca-48a0-bb9a-dfbc1e2e13db" />
 
 ***Contenido parcial de php.ini después de la modificación***  
-<img width="1259" height="557" alt="imagen" src="https://github.com/user-attachments/assets/cdea00dc-ff68-4b58-892a-9326a1ac1050" />
+><img width="1259" height="557" alt="imagen" src="https://github.com/user-attachments/assets/cdea00dc-ff68-4b58-892a-9326a1ac1050" />
 
 📚 Estas son las líneas habilitadas:  
 
