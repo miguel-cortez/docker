@@ -319,6 +319,14 @@ npm run dev
 
 ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
 
+##### PRUEBAS
+
+><img width="686" height="218" alt="imagen" src="https://github.com/user-attachments/assets/4b068961-1fa9-4867-ac20-6883c50f7997" />
+
+
+><img width="526" height="144" alt="imagen" src="https://github.com/user-attachments/assets/34d08471-8cd4-4d46-8370-5764ff3199b1" />
+
+
 ## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
 ### 9.1 Construir la imagen
