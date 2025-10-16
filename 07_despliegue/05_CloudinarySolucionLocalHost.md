@@ -234,5 +234,5 @@ dir cacert.pem /s
 ***Fecha del certificado que ya estaba en el equipo***  
 ><img width="1622" height="458" alt="imagen" src="https://github.com/user-attachments/assets/6e2fb0a5-432d-482b-9f33-348bbed35e63" />
 
-***Fecha del certificado que descargado***  
+***Fecha del certificado descargado***  
 ><img width="1833" height="516" alt="imagen" src="https://github.com/user-attachments/assets/9273a884-83e1-4558-b4dd-91eb852a34bd" />
