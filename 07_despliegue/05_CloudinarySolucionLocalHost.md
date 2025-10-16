@@ -1,12 +1,18 @@
+# Usar Cloudiny desde localhost
+
+ℹ️ Durante la práctica de Cloudinary se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó el sitio web en koyeb.com; pero si la aplicación se ejecuta de forma local con el comando `php artisan serve` no permite subir archivos a Cloudinary. Luego de varias pruebas se logró solucionar esta situación. En este documento se presenta un historial de las acciones realizadas; pero si quiere ir directo a la solución, vaya al final de este documento.
+
+## Error mostrado
 
 ><img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
 
-**Más información del error**  
+## Más información del error
+
 ><img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
 
 ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
 
-##### PRUEBAS
+## Otras pruebas
 
 ><img width="686" height="218" alt="imagen" src="https://github.com/user-attachments/assets/4b068961-1fa9-4867-ac20-6883c50f7997" />
 
