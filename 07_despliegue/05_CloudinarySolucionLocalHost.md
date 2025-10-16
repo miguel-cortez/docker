@@ -219,6 +219,10 @@ Se reinició el servidor con `php artisan serve` y listo. Ahora sí funciona.
 
 Tabién localicé otro archivo `cacert.pem` en la ubicación `C:\wamp64\apps\phpmyadmin5.2.1\vendor\composer\ca-bundle\res\cacert.pem`. Probé con este certificado y también funcionó (pero revisé las fechas y este certificado es más antiguo). Dicho de otra forma, descargar el certificado no era necesario pues lo que faltaba era habilitarlo en **php.ini**  
 
+><img width="1437" height="485" alt="imagen" src="https://github.com/user-attachments/assets/ac805c85-903f-47f7-9388-e7dd484e6a4e" />
+
+
+
 ***Fecha del ceritificado que ya estaba en el equipo***  
 ><img width="1622" height="458" alt="imagen" src="https://github.com/user-attachments/assets/6e2fb0a5-432d-482b-9f33-348bbed35e63" />
 
