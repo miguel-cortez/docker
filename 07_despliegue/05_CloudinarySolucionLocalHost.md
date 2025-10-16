@@ -231,8 +231,8 @@ dir cacert.pem /s
 **Modificar el archivo php.ini**  
 ><img width="1437" height="485" alt="imagen" src="https://github.com/user-attachments/assets/ac805c85-903f-47f7-9388-e7dd484e6a4e" />
 
-***Fecha del ceritificado que ya estaba en el equipo***  
+***Fecha del certificado que ya estaba en el equipo***  
 ><img width="1622" height="458" alt="imagen" src="https://github.com/user-attachments/assets/6e2fb0a5-432d-482b-9f33-348bbed35e63" />
 
-***Fecha del ceritificado que descargado***  
+***Fecha del certificado que descargado***  
 ><img width="1833" height="516" alt="imagen" src="https://github.com/user-attachments/assets/9273a884-83e1-4558-b4dd-91eb852a34bd" />
