@@ -323,9 +323,14 @@ npm run dev
 
 ><img width="686" height="218" alt="imagen" src="https://github.com/user-attachments/assets/4b068961-1fa9-4867-ac20-6883c50f7997" />
 
-
+```php
+Storage::disk('cloudinary')->put('test.txt', 'test content');
+```
 ><img width="526" height="144" alt="imagen" src="https://github.com/user-attachments/assets/34d08471-8cd4-4d46-8370-5764ff3199b1" />
 
+```
+"cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://api.cloudinary.com/v1_1/dpj56vjfn/image/upload"
+```
 
 ## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
