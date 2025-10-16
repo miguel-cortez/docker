@@ -2,7 +2,7 @@
 
 ℹ️ Durante la práctica de `Cloudinary` se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó en `koyeb.com` (con imagen de docker); pero si la aplicación se ejecutaba de forma local con el comando `php artisan serve` no permitía subir archivos a `Cloudinary`. Luego de varias pruebas se logró solucionar esta situación.  
 
-Si solo quiere conocer la solución, vaya a la sección **3. SOLUCIÓN**  
+Si solo quiere conocer la solución, vaya a la sección **3. SOLUCIÓN** o a la sección **4. COMENTARIOS ADICIONALES**  
 
 ## 1. CAPTURAS DE PANTALLA
 
@@ -219,11 +219,17 @@ Se reinició el servidor con `php artisan serve` y listo. Ahora sí funciona.
 
 ## 4. COMENTARIOS ADICIONALES
 
-Tabién localicé otro archivo `cacert.pem` en la ubicación `C:\wamp64\apps\phpmyadmin5.2.1\vendor\composer\ca-bundle\res\cacert.pem`. Probé con este certificado y también funcionó (pero revisé las fechas y este certificado es más antiguo). Dicho de otra forma, descargar el certificado no era necesario pues lo que faltaba era habilitarlo en **php.ini**  
+También localicé otro archivo llamado `cacert.pem` en la ubicación `C:\wamp64\apps\phpmyadmin5.2.1\vendor\composer\ca-bundle\res\cacert.pem`. Probé con este certificado y también funcionó (pero revisé las fechas y este certificado es más antiguo). Dicho de otra forma, descargar el certificado no era necesario pues lo que faltaba era habilitarlo en **php.ini**  
 
+**Buscar algún archivo llamado cacert.pem**
+```
+dir cacert.pem /s
+```
+
+><img width="703" height="343" alt="imagen" src="https://github.com/user-attachments/assets/7c212b3e-78b7-4d85-9b18-0ae2cd91422a" />
+
+**Modificar el archivo php.ini**  
 ><img width="1437" height="485" alt="imagen" src="https://github.com/user-attachments/assets/ac805c85-903f-47f7-9388-e7dd484e6a4e" />
-
-
 
 ***Fecha del ceritificado que ya estaba en el equipo***  
 ><img width="1622" height="458" alt="imagen" src="https://github.com/user-attachments/assets/6e2fb0a5-432d-482b-9f33-348bbed35e63" />
