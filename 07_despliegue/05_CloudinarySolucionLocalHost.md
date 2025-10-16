@@ -2,7 +2,7 @@
 
 ℹ️ Durante la práctica de `Cloudinary` se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó en `koyeb.com` (con imagen de docker); pero si la aplicación se ejecutaba de forma local con el comando `php artisan serve` no permitía subir archivos a `Cloudinary`. Luego de varias pruebas se logró solucionar esta situación.
 
-## Capturas de pantalla del error
+## CAPTURAS DE PANTALLA
 
 ### Archivos seleccionado
 ><img width="1895" height="937" alt="imagen" src="https://github.com/user-attachments/assets/55c953b2-b0a1-4a03-b3a5-c49a55a5f653" />
@@ -13,6 +13,7 @@ Solo desaparece la imagen seleccionada pero no se agrega la información en la t
 
 ><img width="1870" height="819" alt="imagen" src="https://github.com/user-attachments/assets/65d41425-e64b-49ec-ab2b-6ed3b37fcd69" />
 
+## HISTORIAL DE ACCIONES REALIZADAS
 
 ## Descripción del error
 
@@ -25,7 +26,81 @@ Al presionar `SHIFT+CTRL+I` en el navegado (Mozilla Firefox) puedo ver detalles 
 
 ⭐ Se determinó que el problema tiene que ver con la política del navegador web **strict-origin-when-cross-origin** que restringe peticiones de dominios diferentes. Posteriormente creé una imagen de **docker** y desplegué la aplicación en **koyeb.com**. El resultado fue satisfactorio pero con la aplicación ya desplegada (en producción). Hasta este punto, localmente sigue sin funcionar.
 
-## HISTORIAL DE ACCIONES REALIZADAS
+
+## Creación y uso de un Middleware
+
+### Middleware
+
+```
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+// Este Middleware ha sido creado por MACV (no venía por defecto)
+class HanddleCors
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $response = $next($request);
+
+        $origin = $request->headers->get('Origin');
+
+        $allowedOrigins = [
+            'http://localhost:8000',
+            'URL DE CLOUDINARY',
+        ];
+
+        if (in_array($origin, $allowedOrigins)) {
+            $response->headers->set('Access-Control-Allow-Origin', $origin);
+            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            $response->headers->set('Access-Control-Allow-Credentials', 'true');
+        }
+
+        return $response;
+    }
+}
+```
+### Se registró el Middleware en bootstrap/app.php
+
+```
+<?php
+
+// código omitido
+use App\Http\Middleware\HanddleCors;
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        web: __DIR__.'/../routes/web.php',
+        api: __DIR__.'/../routes/api.php',
+        commands: __DIR__.'/../routes/console.php',
+        health: '/up',
+    )
+    // código omitido
+    // SE AGREGÓ DESDE AQUÍ
+    ->withMiddleware(function (Middleware $middleware) {
+
+        $middleware->append(HanddleCors::class);
+
+    })
+    // HASTA AQUÍ
+    ->create();
+```
+
+### Uso del Middleware en la ruta API
+
+```
+Route::post('/dashboard/productos/upload', [ProductoController::class, 'upload'])->middleware([HanddleCors::class]);
+```
+
+⭐ El error siempre continúa.  
 
 
 ## Otras pruebas
