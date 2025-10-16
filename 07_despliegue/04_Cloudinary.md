@@ -310,7 +310,7 @@ php artisan serve
 npm run dev
 ```
 
-> **⭐ ALERTA** No se pueden subir archivos a `cloudinary` cuando la aplicación se ejecuta de forma local (requiere otra configuración para que funcione). Publicada en **koyeb.com** sí funciona.  
+> **⭐ ALERTA** Por defecto no se pueden subir archivos a `cloudinary` cuando la aplicación se ejecuta de forma local; pero publicada en **koyeb.com** sí funciona.  
 
 ## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
