@@ -1,16 +1,32 @@
-# Usar Cloudiny desde localhost
+# USAR CLOUDINARY DESDE LOCALHOST
 
-ℹ️ Durante la práctica de Cloudinary se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó el sitio web en koyeb.com; pero si la aplicación se ejecuta de forma local con el comando `php artisan serve` no permite subir archivos a Cloudinary. Luego de varias pruebas se logró solucionar esta situación. En este documento se presenta un historial de las acciones realizadas; pero si quiere ir directo a la solución, vaya al final de este documento.
+ℹ️ Durante la práctica de `Cloudinary` se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó en `koyeb.com` (con imagen de docker); pero si la aplicación se ejecutaba de forma local con el comando `php artisan serve` no permitía subir archivos a `Cloudinary`. Luego de varias pruebas se logró solucionar esta situación.
 
-## Error mostrado
+## Capturas de pantalla del error
 
-><img width="1915" height="988" alt="imagen" src="https://github.com/user-attachments/assets/e6e0627b-40ab-4aec-bedc-85677277c8e2" />
+### Archivos seleccionado
+><img width="1895" height="937" alt="imagen" src="https://github.com/user-attachments/assets/55c953b2-b0a1-4a03-b3a5-c49a55a5f653" />
 
-## Más información del error
+### Después de hacer clic en Upload
 
-><img width="1919" height="967" alt="imagen" src="https://github.com/user-attachments/assets/e2855bc4-7209-49ce-ba3b-f9cbcc9843bd" />
+Solo desaparece la imagen seleccionada pero no se agrega la información en la tabla ni se sube la imagen.
 
-ℹ️**Información** después de varias pruebas se determinó que el problema es por una política del navegador web **strict-origin-when-cross-origin** que no permite la acción solicitada por cuestiones de seguridad. Posteriormente creé una nueva imagen de **docker** y desplegué la aplicación en **koyeb.com** y de esta manera sí funcionó. Para ejecutar la aplicación de forma local creo que debería realizar otras configuraciones.  
+><img width="1870" height="819" alt="imagen" src="https://github.com/user-attachments/assets/65d41425-e64b-49ec-ab2b-6ed3b37fcd69" />
+
+
+## Descripción del error
+
+Al presionar `SHIFT+CTRL+I` en el navegado (Mozilla Firefox) puedo ver detalles del error.  
+
+><img width="1919" height="365" alt="imagen" src="https://github.com/user-attachments/assets/80c6f6b2-d1ec-4257-b149-618f0df37fc2" />
+
+><img width="1724" height="873" alt="imagen" src="https://github.com/user-attachments/assets/8437d72a-f7ff-4f33-9b82-fc8b699f9672" />
+
+
+⭐ Se determinó que el problema tiene que ver con la política del navegador web **strict-origin-when-cross-origin** que restringe peticiones de dominios diferentes. Posteriormente creé una imagen de **docker** y desplegué la aplicación en **koyeb.com**. El resultado fue satisfactorio pero con la aplicación ya desplegada (en producción). Hasta este punto, localmente sigue sin funcionar.
+
+## HISTORIAL DE ACCIONES REALIZADAS
+
 
 ## Otras pruebas
 
