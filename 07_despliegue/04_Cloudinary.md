@@ -186,15 +186,14 @@ CLOUDINARY_URL=cloudinary://467478xxxxxxxxxxxxxxxxxxxx4UcSKo@dpj56vjfn // 👈L�
 ```
 
 <details close>
-<summary>Otras variables (NO SE HAN UTILIZADO)</summary>
+<summary>Otras variables</summary>
 <pre>
 CLOUDINARY_CLOUD_NAME=dpxxxxxxxvjfn
 CLOUDINARY_KEY=46xxxxxxxxxx7173
 CLOUDINARY_SECRET=bO5dxxxxxxxxxxxx_v4UcSKo
 </pre>
+**Nota** No se han utilizado para subir las imágenes.
 </details>
-
-📚 **Nota** Al publicar el sitio web en **koyeb.com** debe modificar la variable `FILESYSTEM_DISK` con el valor `cloudinary` y además, debe agregar la variable `CLOUDINARY_URL` con el valor **CLOUDINARY_URL** obtenido de su cuenta personal.  
 
 ## 6. Agregue la función upload() en ProductoController
 
@@ -210,7 +209,7 @@ use Illuminate\Support\Facades\Storage; // ➕LÍNEA AGREGADA
 class ProductoController extends Controller
 {
     // ✂️ código omitido
-    // 👉DESDE AQUÍ
+    // 👉 AGREGAR DESDE AQUÍ
     public function upload(Request $request){
         try{
             $info = array();
@@ -242,7 +241,7 @@ class ProductoController extends Controller
 📚 **Notas**  
 - `if (config('filesystems.default') === 'cloudinary')` retorna **true** si la variable `FILESYSTEM_DISK` tiene el valor **cloudinary** en el archivo `.env`
 - `Storage::disk('cloudinary')->putFileAs('images/productos/', $img, $filename);` guarda el archivo en `Cloudinary`
-- Por el momento, el archivo no se guarda en `images/productos/` sino en `Home` de `Cloudinary` (⚠️ PENDIENTE DE REVISAR).
+- En cloudinary, la imagen se guarda en una ruta como `https://res.cloudinary.com/<cloud_name>/image/upload/v1760517019/images/productos/1760606963_3871.png`.
 - `$img->move(public_path("images/productos"), $filename);` guarda el archivo en la carpeta `public/images/productos/` en la carpeta del proyecto local.
 - Esta es la ruta **API** definida en **api.php** `Route::post('/dashboard/productos/upload', [ProductoController::class, 'upload']);`
 
@@ -262,7 +261,7 @@ class ProductoController extends Controller
     public function upload(Request $request){
         // ✂️CÓDIGO OMITIDO
     }
-    // 👉 DESDE AQUÍ
+    // 👉 AGREGAR DESDE AQUÍ
     public function remove(Request $request){
         try{
             $producto = Producto::find($request["id"]);
@@ -293,6 +292,16 @@ class ProductoController extends Controller
     // 👈HASTA AQUÍ
 }
 ```
+<details close>
+    <summary>Mensaje obtenido cuando se elimina desde cloudinary</summary>
+    <pre>
+    {
+      "data": "images/productos/1760606963_3871.png",
+      "message": "Imagen eliminada"
+    }
+    </pre>
+    Nota. No obtiene la ruta absoluta.
+</details>
 
 ## 8. Ejecute la aplicación
 
@@ -312,17 +321,15 @@ npm run dev
 
 ## 9. Construya una imagen de Docker y publíquela en Docker Hub
 
-📚 **Nota** Recuerde que usted puede asignar un nombre de imagen y etiqueta según su conveniencia. 
-
-><img width="479" height="230" alt="imagen" src="https://github.com/user-attachments/assets/341c1884-f95d-4ce5-ba78-8ae02e84fd9c" />
-
-
-
 ### 9.1 Construir la imagen
 
 ```
 docker image build -t example-app:v2.0 .
 ```
+
+📚 **Nota** Recuerde que usted puede asignar un nombre de imagen y etiqueta según su conveniencia. 
+
+><img width="479" height="230" alt="imagen" src="https://github.com/user-attachments/assets/341c1884-f95d-4ce5-ba78-8ae02e84fd9c" />
 
 ### 9.2 Asignar etiqueta compatible con Docker Hub
 ```
@@ -338,15 +345,23 @@ docker push miguelcortez01/example-app:v2.0
 
 ### 10.1 Configure variables en Koyeb (Environment variables and files)
 
-><img width="788" height="38" alt="imagen" src="https://github.com/user-attachments/assets/6beaad81-4667-45ad-8f4a-70fd221285ff" />
+📚 **Nota** Al publicar el sitio web en **koyeb.com** debe modificar la variable `FILESYSTEM_DISK` con el valor `cloudinary` y además, debe agregar la variable `CLOUDINARY_URL` con el valor **CLOUDINARY_URL** obtenido de su cuenta personal.  
 
-➕ La variable `CLOUDINARY_URL` no existe y debe agregarla (**➕ Add another**)    
-><img width="785" height="41" alt="imagen" src="https://github.com/user-attachments/assets/628ac6a5-74b1-499b-817a-b32d6a37c9a6" />  
+Variable modificada:  
+```
+FILESYSTEM_DISK=cloudinary
+```
+Variable agregada (➕ Add another):  
+```
+CLOUDINARY_URL=cloudinary://467478xxxxxxxxxxxxxxxxxxxx4UcSKo@dpj56vjfn
+```
 
 ### 10.2 Agregue la imagen de docker que quiere desplegar (source)
-<img width="853" height="875" alt="imagen" src="https://github.com/user-attachments/assets/349cdeff-185e-4e20-9429-31673f415070" />  
+><img width="777" height="617" alt="imagen" src="https://github.com/user-attachments/assets/7ce054c3-b592-4af1-9608-71bff207a590" />
 
-### 10.3 Despliegue la aplicación (save and deploy).
+### 10.3 Despliegue la aplicación
+><img width="152" height="51" alt="imagen" src="https://github.com/user-attachments/assets/e82de630-09fc-42c7-91aa-a8b003ec67ef" />
+
 
 
 
