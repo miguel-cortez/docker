@@ -1,8 +1,10 @@
 # USAR CLOUDINARY DESDE LOCALHOST
 
-ℹ️ Durante la práctica de `Cloudinary` se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó en `koyeb.com` (con imagen de docker); pero si la aplicación se ejecutaba de forma local con el comando `php artisan serve` no permitía subir archivos a `Cloudinary`. Luego de varias pruebas se logró solucionar esta situación.
+ℹ️ Durante la práctica de `Cloudinary` se realizó un proceso para subir archivos a Cloudinary y la aplicación funcionó cuando de publicó en `koyeb.com` (con imagen de docker); pero si la aplicación se ejecutaba de forma local con el comando `php artisan serve` no permitía subir archivos a `Cloudinary`. Luego de varias pruebas se logró solucionar esta situación.  
 
-## CAPTURAS DE PANTALLA
+Si solo quiere conocer la solución, vaya a la sección **3. SOLUCIÓN**  
+
+## 1. CAPTURAS DE PANTALLA
 
 ### Archivos seleccionado
 ><img width="1895" height="937" alt="imagen" src="https://github.com/user-attachments/assets/55c953b2-b0a1-4a03-b3a5-c49a55a5f653" />
@@ -13,7 +15,7 @@ Solo desaparece la imagen seleccionada pero no se agrega la información en la t
 
 ><img width="1870" height="819" alt="imagen" src="https://github.com/user-attachments/assets/65d41425-e64b-49ec-ab2b-6ed3b37fcd69" />
 
-## HISTORIAL DE ACCIONES REALIZADAS
+## 2. HISTORIAL DE ACCIONES REALIZADAS
 
 ## Descripción del error
 
@@ -152,7 +154,7 @@ Ahora el mensaje ha cambiado por `cURL error 60: SSL certificate problem: unable
 
 También el mensaje de error ha cambiado por `cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://api.cloudinary.com/v1_1/dpj56vjfn/raw/upload` (visto en la pestaña Respuesta).    
 
-## FINALMENTE ... LA SOLUCIÓN
+## 3. SOLUCIÓN
 🔑 Se debe descargar el certificado **cacert.pem** desde **https://curl.se/ca/cacert.pem** y configurarlo en **php.ini** de la versión de PHP que está utilizando el proyecto de Laravel. Yo guardé el archivo **cacert.pem** en el directorio **c:\cacert**  
 
 <details>
@@ -215,7 +217,7 @@ Se reinició el servidor con `php artisan serve` y listo. Ahora sí funciona.
 
 <img width="1852" height="667" alt="imagen" src="https://github.com/user-attachments/assets/c266980b-b00d-4708-b0ec-61fd8e163467" />
 
-🔤 Comentario adicional
+## 4. COMENTARIOS ADICIONALES
 
 Tabién localicé otro archivo `cacert.pem` en la ubicación `C:\wamp64\apps\phpmyadmin5.2.1\vendor\composer\ca-bundle\res\cacert.pem`. Probé con este certificado y también funcionó (pero revisé las fechas y este certificado es más antiguo). Dicho de otra forma, descargar el certificado no era necesario pues lo que faltaba era habilitarlo en **php.ini**  
 
