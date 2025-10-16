@@ -214,3 +214,13 @@ openssl.cafile = "C:\cacert\cacert.pem"
 Se reinició el servidor con `php artisan serve` y listo. Ahora sí funciona.  
 
 <img width="1852" height="667" alt="imagen" src="https://github.com/user-attachments/assets/c266980b-b00d-4708-b0ec-61fd8e163467" />
+
+🔤 Comentario adicional
+
+Tabién localicé otro archivo `cacert.pem` en la ubicación `C:\wamp64\apps\phpmyadmin5.2.1\vendor\composer\ca-bundle\res\cacert.pem`. Probé con este certificado y también funcionó (pero revisé las fechas y este certificado es más antiguo). Dicho de otra forma, descargar el certificado no era necesario pues lo que faltaba era habilitarlo en **php.ini**  
+
+***Fecha del ceritificado que ya estaba en el equipo***  
+><img width="1622" height="458" alt="imagen" src="https://github.com/user-attachments/assets/6e2fb0a5-432d-482b-9f33-348bbed35e63" />
+
+***Fecha del ceritificado que descargado***  
+><img width="1833" height="516" alt="imagen" src="https://github.com/user-attachments/assets/9273a884-83e1-4558-b4dd-91eb852a34bd" />
