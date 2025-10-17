@@ -25,13 +25,12 @@ docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o
 docker volume ls
 ```
 
-## 4. Utilizar un volumen
-
-### Ejecutar un contenedor de alpine que utilice el volumen 📦myvolume
+## 4. Ejecutar un contenedor de alpine que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume alpine
 ```
+
 Explicación del comando:  
 🔰 **type**  
 - `type=volume` para montar un volumen.
@@ -47,7 +46,7 @@ Explicación del comando:
 - El directorio de destino puede llamarse diferente del nombre del volumen.
 
 
-### Ejecutar un contenedor de ubuntu que utilice el volumen 📦myvolume
+## 5. Ejecutar un contenedor de ubuntu que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
@@ -61,14 +60,14 @@ docker run -it --rm -v myvolume:/myvolume ubuntu
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
 
-### Ejecuta un contenedor de ubuntu que utiliza 📦myvolume2
+## 6. Ejecuta un contenedor de ubuntu que utiliza 📦myvolume2
 
 ```
 docker run -it --rm -v myvolume2:/data ubuntu bash
 ```
 📚 Debido a que **myvolume2** es de tipo **tmpfs** los datos no son persistentes.  
 
-### Ejecuta un contenedor de MySQL en segundo plano (sin utilizar volumen)
+## 6. Ejecutar un contenedor de MySQL en segundo plano (sin utilizar volumen)
 
 ⚡Esto se hará para buscar el archivo **my.cnf** y la ruta de la carpeta **datadir** de **MySQL**
 
@@ -112,7 +111,7 @@ docker container rm some-mysql
 docker container rm some-mysql
 ```
 
-## Ejecute nuevamente mysql; pero usando el volumen myvolume
+## 7. Ejecute nuevamente mysql; pero usando el volumen 📦 myvolume
 
 ```
 docker run -v myvolume:/var/lib/mysql -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
