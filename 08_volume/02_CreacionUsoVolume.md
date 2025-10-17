@@ -6,6 +6,12 @@
 docker volume create --name myvolume
 docker volume create myvolume
 ```
+**Crear un volumen en memoria RAM**  
+
+```
+docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o=size=100m,uid=1000 myvolume2
+```
+
 ## Listar los volúmenes
 ```bash
 docker volume ls
@@ -41,6 +47,13 @@ Explicación del comando:
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
 docker run -it --rm -v myvolume:/myvolume ubuntu
 ```
+
+**Ejecuta un contenedor que utiliza myvolume2**
+
+```
+docker run -it --rm -v myvolume2:/data ubuntu bash
+```
+📚 Debido a que **myvolume2** es de tipo **tmpfs** los datos no son persistentes.  
 
 ## Inspeccionar un volumen
 ```
