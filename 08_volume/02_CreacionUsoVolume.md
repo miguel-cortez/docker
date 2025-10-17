@@ -179,7 +179,17 @@ mysql -uroot -p
 create database demo;
 ```
 
-🔖Salga de MySQL con **exit** y también del contenedor con **exit**  
+### d) Salga de MySQL
+
+```
+exit;
+```
+
+### e) Salga del contenedor
+
+```
+exit
+```
 
 ### 10. Conexión desde equipo host (desde Ubuntu instalado con WSL2)
 
@@ -207,5 +217,6 @@ docker volume inspect myvolume
 
 ```
 docker volume rm myvolume
+docker volume rm myvolume2
 ```
 
