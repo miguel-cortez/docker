@@ -2,6 +2,8 @@
 
 ## Crear un volumen
 
+Se creará un volumen llamado 📦**myvolume**
+
 ```bash
 docker volume create myvolume
 ```
@@ -10,7 +12,9 @@ docker volume create --name myvolume
 ```
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
-**Crear un volumen en memoria RAM**  
+## Crear un volumen en memoria RAM  
+
+Se creará un volumen llamado 📦**myvolume2**
 
 ```
 docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o=size=100m,uid=1000 myvolume2
@@ -23,7 +27,7 @@ docker volume ls
 
 ## Utilizar un volumen
 
-**Ejecuta un contenedor de alpine**  
+### Ejecuta un contenedor de alpine
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume alpine
@@ -43,7 +47,7 @@ Explicación del comando:
 - El directorio de destino puede llamarse diferente del nombre del volumen.
 
 
-**Ejecuta un contenedor de ubuntu**  
+### Ejecuta un contenedor de ubuntu
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
@@ -57,55 +61,56 @@ docker run -it --rm -v myvolume:/myvolume ubuntu
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
 
-**Ejecuta un contenedor que utiliza myvolume2**
+### Ejecuta un contenedor que utiliza myvolume2
 
 ```
 docker run -it --rm -v myvolume2:/data ubuntu bash
 ```
 📚 Debido a que **myvolume2** es de tipo **tmpfs** los datos no son persistentes.  
 
-**Ejecuta un contenedor de MySQL**  
+### Ejecuta un contenedor de MySQL en segundo plano
 
 ```
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
 ```
 
-**Ejecutar un comando en un contenedor que está corriendo en segundo plano**  
+### Ejecutar un comando en un contenedor que está corriendo en segundo plano
 
 ```
 docker exec -it some-mysql /bin/bash
 ```
 
-Buscando el archivo my.cnf  
+#### Buscando el archivo my.cnf
 ```
 find / -name my.cnf
 ```
+📖El archivo ***my.cnf** fue localizado en ***/etc/mysql/my.cnf***
 
-Ver el contenido del archiov my.cnf  
+#### Ver el contenido del archiov my.cnf
 
 ```
 cat /etc/mysql/my.cnf
 ```
 
-**Salga del contenedor**  
+#### Salga del contenedor de MySQL que se está ejecutando en segundo plano (el único en ejecución)
 
 ```
 exit
 ```
 
-**Detenga el contenedor que se está ejecutando en segundo plano**  
+### Detenga el contenedor de MySQl que se está ejecutando en segundo plano
 
 ```
 docker container rm some-mysql
 ```
 
-**Elimine el contenedor que detuvo recientemente**  
+### Elimine el contenedor de MySQL que detuvo recientemente (en paso anterior)
 
 ```
 docker container rm some-mysql
 ```
 
-**Ejecutar nuevamente mysql; pero usando el volumen myvolume**  
+## Ejecute nuevamente mysql; pero usando el volumen myvolume
 
 ```
 docker run -v myvolume:/var/lib/mysql -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
@@ -116,23 +121,35 @@ docker run --mount type=volume,src=myvolume,dst=/var/lib/mysql --publish 3306:33
 ```
 📘**Nota** Los dos comandos anteriores son equivalentes
 
-**Ejecutar un segundo comando en el contenedor**
+## Ejecute el comando /bin/bash en el contenedor de MySQL
 ```
 docker exec -it some-mysql /bin/bash
 ```
 
-**Dentro del contenedor ejecute MySQL**  
+### Dentro del contenedor ejecute MySQL
 
 ```
 mysql -uroot -padmin demo
 ```
 
 o simplemente:  
+
 ```
 mysql -uroot -p
 ```
 
-**Conexión desde equipo host**  
+🔖Salga de MySQL con **exit** y también del contenedor con **exit**  
+
+### Conexión desde equipo host
+
+<details>
+  <summary>Requiere mysql-client</summary>
+  <pre>
+    Si no tiene instalado el cliente de MySQL debe instalarlo con los comandos siguientes:
+    sudo apt update
+    sudo apt install -y mysql-client
+  </pre>
+</details>
 
 ```
 mysql --host=127.0.0.1 --port=3306 --user=root --password=admin demo
