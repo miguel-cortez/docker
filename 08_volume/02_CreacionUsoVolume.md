@@ -151,21 +151,32 @@ docker run -v myvolume:/var/lib/mysql -p 3306:3306 --name some-mysql -e MYSQL_RO
 docker run --mount type=volume,src=myvolume,dst=/var/lib/mysql --publish 3306:3306 --name some-mysql --env MYSQL_ROOT_PASSWORD=admin --detach mysql:8.0.43-debian
 ```
 
-## 9. Ejecute el comando /bin/bash en el contenedor demysql:8.0.43-debian
+## 9. Cree una base de datos en contenedor de mysql:8.0.43-debian
+
+### a) Ejecute el comando /bin/bash en el cotenedor de mysql:8.0.43-debian
+
+Con esto ingresará la consola del contenedor que se está ejecutando en segundo plano.
+
 ```
 docker exec -it some-mysql /bin/bash
 ```
 
-### Dentro del contenedor de mysql:8.0.43-debian ejecute MySQL
+### b) Dentro del contenedor de mysql:8.0.43-debian ingrese a MySQL
+
+Solo use uno de los siguientes dos comandos:  
 
 ```
-mysql -uroot -padmin demo
+mysql -uroot -padmin
 ```
-
-o simplemente:  
 
 ```
 mysql -uroot -p
+```
+
+### c) Cree una base de datos llamada demo
+
+```
+create database demo;
 ```
 
 🔖Salga de MySQL con **exit** y también del contenedor con **exit**  
