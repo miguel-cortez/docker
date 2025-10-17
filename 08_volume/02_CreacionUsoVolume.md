@@ -1,6 +1,6 @@
 # Creación y uso de volúmenes
 
-## Crear un volumen
+## 1. Crear un volumen
 
 Se creará un volumen llamado 📦**myvolume**
 
@@ -12,7 +12,7 @@ docker volume create --name myvolume
 ```
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
-## Crear un volumen en memoria RAM  
+## 2. Crear un volumen en memoria RAM  
 
 Se creará un volumen llamado 📦**myvolume2**
 
@@ -20,14 +20,14 @@ Se creará un volumen llamado 📦**myvolume2**
 docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o=size=100m,uid=1000 myvolume2
 ```
 
-## Listar los volúmenes
+## 3. Listar los volúmenes
 ```bash
 docker volume ls
 ```
 
-## Utilizar un volumen
+## 4. Utilizar un volumen
 
-### Ejecuta un contenedor de alpine
+### Ejecutar un contenedor de alpine que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume alpine
@@ -47,7 +47,7 @@ Explicación del comando:
 - El directorio de destino puede llamarse diferente del nombre del volumen.
 
 
-### Ejecuta un contenedor de ubuntu
+### Ejecutar un contenedor de ubuntu que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
@@ -61,20 +61,22 @@ docker run -it --rm -v myvolume:/myvolume ubuntu
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
 
-### Ejecuta un contenedor que utiliza myvolume2
+### Ejecuta un contenedor de ubuntu que utiliza 📦myvolume2
 
 ```
 docker run -it --rm -v myvolume2:/data ubuntu bash
 ```
 📚 Debido a que **myvolume2** es de tipo **tmpfs** los datos no son persistentes.  
 
-### Ejecuta un contenedor de MySQL en segundo plano
+### Ejecuta un contenedor de MySQL en segundo plano (sin utilizar volumen)
+
+⚡Esto se hará para buscar el archivo **my.cnf** y la ruta de la carpeta **datadir** de **MySQL**
 
 ```
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
 ```
 
-### Ejecutar un comando en un contenedor que está corriendo en segundo plano
+#### Ejecutar un comando en un contenedor que está corriendo en segundo plano
 
 ```
 docker exec -it some-mysql /bin/bash
