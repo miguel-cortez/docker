@@ -14,7 +14,7 @@ docker volume create --name myvolume
 
 ## 2. Crear un volumen en memoria RAM  
 
-Se creará un volumen llamado 📦**myvolume2**
+Se creará un volumen llamado 📦**myvolume2**.
 
 ```
 docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o=size=100m,uid=1000 myvolume2
