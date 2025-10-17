@@ -25,28 +25,40 @@ docker volume create --driver local --opt type=tmpfs –opt device=tmpfs --opt o
 docker volume ls
 ```
 
-## 4. Ejecutar un contenedor de alpine que utilice el volumen 📦myvolume
+## 4. Ejecutar un contenedor de Alpine que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume alpine
 ```
 
 Explicación del comando:  
-🔰 **type**  
-- `type=volume` para montar un volumen.
-- `type=bind` para montar un directorio del equipo host en el contenedor
-- `type=tmpfs` para montar un sistema de archivos temporal en memoria RAM (no es persistente).
 
-🔰 **src** deriva de la palabra source u origen
-- Es el nombre del volumen que se quiere montar en el contenedor.
+<table>
+  <tr>
+    <th>Parámetros</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>Define el tipo de volumen a montar. 
+    <ul>
+      <li>type=volume, Montar un volumen</li>
+      <li>type=bind, Montar un directorio del equipo host en el contenedor</li>
+      <li>type=tmpfs, Montar un sistema de archivos temporal en memoria RAM (no es persistente)</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>src</td>
+    <td>Deriva de la palabra source (origen) y se debe asingar el nombre del volumen que quiere usar</td>
+  </tr>
+  <tr>
+    <td>dst</td>
+    <td>Deriva de la palabra destination (destino) y se debe asignar la ruta donde se montará el volumen internamente en el contenedor. El directorio es creado automáticamente dentro del cotenedor</td>
+  </tr>
+</table>
 
-🔰 **dst** deriva destino (en inglés)
-- Indica cómo se llamará el directorio donde el volumen será montado dentro del contenedor.
-- El directorio se creará automáticamente dentro del contenedor.
-- El directorio de destino puede llamarse diferente del nombre del volumen.
-
-
-## 5. Ejecutar un contenedor de ubuntu que utilice el volumen 📦myvolume
+## 5. Ejecutar un contenedor de Ubuntu que utilice el volumen 📦myvolume
 
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
@@ -60,28 +72,35 @@ docker run -it --rm -v myvolume:/myvolume ubuntu
 ***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
 
 
-## 6. Ejecuta un contenedor de ubuntu que utiliza 📦myvolume2
+## 6. Ejecuta un contenedor de Ubuntu que utiliza 📦myvolume2
 
 ```
 docker run -it --rm -v myvolume2:/data ubuntu bash
 ```
 📚 Debido a que **myvolume2** es de tipo **tmpfs** los datos no son persistentes.  
 
-## 6. Ejecutar un contenedor de MySQL en segundo plano (sin utilizar volumen)
+## 7. Investigar dónde guarda las bases de datos MySQL
 
 ⚡Esto se hará para buscar el archivo **my.cnf** y la ruta de la carpeta **datadir** de **MySQL**
+
+### Ejecutar un contenedor de mysql:8.0.43-debian en segundo plano sin utilizar volumen
 
 ```
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
 ```
 
-#### Ejecutar un comando en un contenedor que está corriendo en segundo plano
+#### Ejecutar el comando /bin/bash en el contenedor mysql:8.0.43-debian que está corriendo en segundo plano
+
+Con este comando vamos a entar a la distribución de Linux que tiene instalado MySQL.
 
 ```
 docker exec -it some-mysql /bin/bash
 ```
 
 #### Buscando el archivo my.cnf
+
+Ya dentro de la distribución de Linux, buscamos el archivo my.cnf
+
 ```
 find / -name my.cnf
 ```
@@ -93,25 +112,29 @@ find / -name my.cnf
 cat /etc/mysql/my.cnf
 ```
 
-#### Salga del contenedor de MySQL que se está ejecutando en segundo plano (el único en ejecución)
+Allí está la línea que indica dónde se guardan las bases de datos ***datadir         = /var/lib/mysql***
+
+#### Salga del contenedor mysql:8.0.43-debian
 
 ```
 exit
 ```
 
-### Detenga el contenedor de MySQl que se está ejecutando en segundo plano
+### Detenga el contenedor de mysql:8.0.43-debian
+
+```
+docker container stop some-mysql
+```
+
+### Elimine el contenedor de mysql:8.0.43-debian
 
 ```
 docker container rm some-mysql
 ```
 
-### Elimine el contenedor de MySQL que detuvo recientemente (en paso anterior)
+## 8. Ejecute nuevamente el contenedor mysql:8.0.43-debian en segundo plano y usando el volumen 📦 myvolume
 
-```
-docker container rm some-mysql
-```
-
-## 7. Ejecute nuevamente mysql; pero usando el volumen 📦 myvolume
+MySQL será expuesto al exterior en el puerto 3306. Esto servirá para conectarse a MySQL desde afuera del contenedor.
 
 ```
 docker run -v myvolume:/var/lib/mysql -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
