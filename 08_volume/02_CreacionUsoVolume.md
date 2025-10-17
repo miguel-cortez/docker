@@ -3,9 +3,13 @@
 ## Crear un volumen
 
 ```bash
-docker volume create --name myvolume
 docker volume create myvolume
 ```
+```bash
+docker volume create --name myvolume
+```
+***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
+
 **Crear un volumen en memoria RAM**  
 
 ```
