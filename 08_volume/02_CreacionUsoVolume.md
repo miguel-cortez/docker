@@ -41,12 +41,17 @@ Explicación del comando:
 
 **Ejecuta un contenedor de ubuntu**  
 
-***Nota*** Los dos comandos tienen el mismo significado (son equivalentes).  
-
 ```bash
 docker run -it --rm --mount type=volume,src=myvolume,dst=/myvolume ubuntu
+```
+
+
+```bash
 docker run -it --rm -v myvolume:/myvolume ubuntu
 ```
+
+***📘 Nota*** Los dos comandos anteriores tienen el mismo significado (son equivalentes).  
+
 
 **Ejecuta un contenedor que utiliza myvolume2**
 
@@ -99,8 +104,14 @@ docker container rm some-mysql
 **Ejecutar nuevamente mysql; pero usando el volumen myvolume**  
 
 ```
-docker run -v myvolume:/var/lib/mysql --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
+docker run -v myvolume:/var/lib/mysql -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:8.0.43-debian
 ```
+o
+```
+docker run --mount type=volume,src=myvolume,dst=/var/lib/mysql --publish 3306:3306 --name some-mysql --env MYSQL_ROOT_PASSWORD=admin --detach mysql:8.0.43-debian
+```
+📘**Nota** Los dos comandos anteriores son equivalentes
+
 **Ejecutar un segundo comando en el contenedor**
 ```
 docker exec -it some-mysql /bin/bash
