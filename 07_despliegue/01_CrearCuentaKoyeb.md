@@ -23,5 +23,20 @@ Escriba el nombre de la organización y luego haga clic en **Deactivate**
 
 <img width="586" height="316" alt="imagen" src="https://github.com/user-attachments/assets/eb07ead1-8829-455b-adce-73ef981fa48a" />
 
+Le enviarán una notificación al correo electrónico para desativar la cuenta (esta imagen la capturé de otra cuenta).  
+<img width="1035" height="686" alt="imagen" src="https://github.com/user-attachments/assets/a3e236af-ec63-4f9b-803c-34d76508ad83" />
+
+
 Luego de desactivar la cuenta **Plan Pro**, haga una nueva organización con **Plan Hobby**.  Esta nueva organización no tendrá vencimiento.  
+
+
+<img width="655" height="257" alt="imagen" src="https://github.com/user-attachments/assets/44ca85cd-e7bf-4025-947d-d7c31dfc4734" />  
+
+<img width="590" height="292" alt="imagen" src="https://github.com/user-attachments/assets/1db5d926-e027-4907-8d49-79bf1e710ab0" />
+
+Continúe con el asistente.
+
+<img width="1381" height="623" alt="imagen" src="https://github.com/user-attachments/assets/d2ff11f1-d74e-4444-a72a-04ecdb8f6cb8" />  
+
+
 
