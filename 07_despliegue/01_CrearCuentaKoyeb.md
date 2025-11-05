@@ -38,5 +38,10 @@ Continúe con el asistente.
 
 <img width="1381" height="623" alt="imagen" src="https://github.com/user-attachments/assets/d2ff11f1-d74e-4444-a72a-04ecdb8f6cb8" />  
 
+Su nueva cuenta debe quedar con Hobby Plan  
+
+<img width="233" height="219" alt="imagen" src="https://github.com/user-attachments/assets/e8bd1e3e-5f2b-47c4-bab7-377db71a65b1" />
+
+
 
 
