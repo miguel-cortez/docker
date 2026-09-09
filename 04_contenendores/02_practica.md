@@ -1,17 +1,54 @@
 # Uso de contenedores
 
-## Ejecutar la imagen de mysql con comando bash:
+## Ejecutar la imagen de mysql con comando bash
 
 ```
 sudo docker run --name mysql-test -it mysql bash
 ```
+:books: Notas.
+
+- Al intentar ingresar a MySQL muestra un error; pero es normal, abajo está la explicación.  
+  ![image](./img/error.png)  
+- Este contenedor es tan minimalista que no dispone ni del comando `clear` para borrar la pantalla y otros comandos de uso común en Linux.  
+- Con el comando `cat /etc/system-release` encontré que es una distribución de `Oracle Linux Server release 9.6`.  
+- La imagen oficial de MySQL tiene un ENTRYPOINT que normalmente se encarga de inicializar y arrancar el servidor MySQL; pero en el ejemplo se está ejecutando el comando `bash` no el servicio de `MySQL` 
+
+## Ejecutar el servicio de mysql en primer plano
+
+```
+sudo docker run --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql
+```
+![image](./img/servicio_mysql.png)  
+
+Se ejecuta el servicio; pero no podemos ingresar a la consola de mysql para interactuar con el servidor.  
+
+## Ejecuta el contenedor de mysql en segundo plano
+
+```
+sudo docker run --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql
+```
+:large_orange_diamond: Parámetros
+- `-d mysql` indica que mysql ejecutará `mysql` en segundo plano. El contenedor queda en ejecución y solo muestra un identificador como `0a1f19c8fdb5ff37816e834ad2b287d0f58f97af35493e12ad3a3523f956d579`. El contenedor queda en ejecución, listo para recibir conexiones. `-d` significa `detached (desacoplado)`. 
+- `-e MYSQL_ALLOW_EMPTY_PASSWORD=yes` indica que el usuario `root` no tendrá contaseña, esto está bien para entorno de pruebas solamente pero no para un ambiente en producción.  
+
+Para ingresar a la terminal de `MySQL` ejecute el siguiente comando:  
+
+```
+sudo docker exec -it mysql-test mysql -u root
+```
+
+![image](./img/consola_mysql.png)  
+
+
 ## Ver la lista de contenendores
+
+:white_check_mark: Lista de contenedores que se encuentran en ejecución  
 
 ```
 sudo docker container ls
 ```
 
-📗 **Note**. Ver los contenedores incluyendo los contenedores con extado finalizado.
+:white_check_mark: Lista de contenedores incluyendo los contenedores finalizados    
 
 ```
 sudo docker container ls -a
@@ -28,7 +65,7 @@ sudo docker container rm a7b6d145cac2
 ## Ejecutar de manera interactiva un contenedor de alpine 
 
 ```
-sudo docker run --rm -it  alpine
+sudo docker run --rm -it alpine
 ```
 
 Una vez ejecutado el contenendor, se pide que consulte la información del SO. Para ello, ejecute el comando `cat /etc/os-release` 
