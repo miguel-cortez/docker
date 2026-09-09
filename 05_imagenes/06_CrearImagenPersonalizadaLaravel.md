@@ -14,6 +14,13 @@ cd example-app
 ```
 Dentro de esta carpeta se crean los archivos (.dockerignore y Dockerfile que explico más adelante).  
 
+
+**Pendiente de comprobar si esto es necesario**  
+
+<img width="1095" height="570" alt="imagen" src="https://github.com/user-attachments/assets/76d30ccb-2910-43df-b501-011f4fbffadb" />
+
+
+
 ## 1. Crear un archivo .dockerignore
 
 📓 **Notas**.
@@ -264,5 +271,5 @@ http://localhost:8000/
 
 ***Esta sería una forma más práctica de ejecutar la aplicación y el resultado sería el mismo***  
 ```
-docker container run --rm   --name example-app   --env-file .env  -p 8000:8000   example-app:v1.0
+docker container run --rm --name example-app --env-file .env -p 8000:8000 example-app:v1.0
 ```
