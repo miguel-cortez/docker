@@ -278,7 +278,7 @@ use tienda
 
 Automáticamente se creará la base de datos `tienda` y se mostrará un mensaje como `switched to db tienda` 
 
-Inserte un objeto en `productos` 
+:small_orange_diamond: Inserte un objeto (conocido también como documento) en `productos` 
 
 ```
 db.productos.insertOne( {nombre: "Laptop", precio: 700, stock: 50} )
@@ -288,15 +288,19 @@ db.productos.insertOne( {nombre: "Laptop", precio: 700, stock: 50} )
 
 ![image](./img/teclado_inalambrico.png)  
 
-Mostrar las colecciones  
+:small_orange_diamond: Mostrar las colecciones  
+
+```
+show collections
+```
 
 ![image](./img/show_collections.png)  
 
-Lista de productos  
+:small_orange_diamond: Lista de productos  
 
 ![image](./img/lista_productos.png)  
 
-Buscar un producto específico:  
+:small_orange_diamond: Busque un producto específico  
 
 ```
 db.productos.find({nombre:"Laptop"})
@@ -304,7 +308,7 @@ db.productos.find({nombre:"Laptop"})
 
 ![image](./img/buscar_laptop.png) 
 
-También puede insertar múltiples objetos en una sola instrucción:  
+:small_orange_diamond: También puede insertar múltiples objetos en una sola instrucción  
 
 ```
 db.productos.insertMany( [{nombre: "Pantalla 16 pulgadas", precio: 100, stock: 4}, {nombre: "Bocinas", precio: 24.80, stock: 12}] )
