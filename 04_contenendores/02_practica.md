@@ -47,6 +47,11 @@ sudo docker exec -it mysql-test mysql -u root
 ```
 sudo docker container ls
 ```
+o
+
+```
+sudo docker ps
+```
 
 :white_check_mark: Lista de contenedores incluyendo los contenedores finalizados    
 
@@ -268,14 +273,43 @@ show databases
 ***Para trabajar con una base de datos***
 
 ```
-use mybasedatos
+use tienda
 ```
 
-👓 Ver contenedores en ejecución:  
+Automáticamente se creará la base de datos `tienda` y se mostrará un mensaje como `switched to db tienda` 
+
+Inserte un objeto en `productos` 
 
 ```
-sudo docker ps
+db.productos.insertOne( {nombre: "Laptop", precio: 700, stock: 50} )
 ```
+
+![image](./img/laptop.png) 
+
+![image](./img/teclado_inalambrico.png)  
+
+Mostrar las colecciones  
+
+![image](./img/show_collections.png)  
+
+Lista de productos  
+
+![image](./img/lista_productos.png)  
+
+Buscar un producto específico:  
+
+```
+db.productos.find({nombre:"Laptop"})
+```
+
+![image](./img/buscar_laptop.png) 
+
+También puede insertar múltiples objetos en una sola instrucción:  
+
+```
+db.productos.insertMany( [{nombre: "Pantalla 16 pulgadas", precio: 100, stock: 4}, {nombre: "Bocinas", precio: 24.80, stock: 12}] )
+```
+![image](./img/insert_many.png) 
 
 ## Ejecutar un contenedor de PostreSQL en segundo plano y publicar el servicio en el puerto 5432
 
