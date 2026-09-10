@@ -48,18 +48,19 @@
 
 Crear una imagen personalizada basada en la distribución `ubuntu:24.04`, actualizar la lista de paquetes disponibles e instalar el paquete `mc`   
 
-```
-FROM ubuntu:24.04
-RUN apt update && apt install -y mc
-```
-
 ***Resumen del proceso para crear la imagen personalizada***
 - `mkdir ubuntu2404`
 - `cd ubuntu2404`
 - `touch Dockerfile`
-- Agregue al archivo `Dockerfile` las instrucciones. Puede hacerlo con `mc`, `vi`, `vim`, `visual studio code`,  etc. (probablemente tenga que instalar el editor de código)
+- Agregue al archivo `Dockerfile` las instrucciones. Puede hacerlo con `mc`, `vi`, `vim`, `visual studio code`,  etc. (probablemente tenga que instalar el editor de código).  
+
+  ```
+  FROM ubuntu:24.04
+  RUN apt update && apt install -y mc
+  ```
+
 - Guarde el archivo `Dockerfile` y salga del editor.
-- ejecute el comando: `docker image build -t ubuntu:24.04`
+- ejecute el comando: `docker image build -t ubuntu:24.04 .`
 
 ## Ejemplo 2
 
