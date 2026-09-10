@@ -53,6 +53,14 @@ FROM ubuntu:24.04
 RUN apt update && apt install -y mc
 ```
 
+***Resumen del proceso para crear la imagen personalizada***
+- `mkdir ubuntu2404`
+- `cd ubuntu2404`
+- `touch Dockerfile`
+- Agregue al archivo `Dockerfile` las instrucciones. Puede hacerlo con `mc`, `vi`, `vim`, `visual studio code`,  etc. (probablemente tenga que instalar el editor de código)
+- Guarde el archivo `Dockerfile` y salga del editor.
+- ejecute el comando: `docker image build -t ubuntu:24.04`
+
 ## Ejemplo 2
 
 ***Descripción***
@@ -101,7 +109,6 @@ done
 FROM busybox
 COPY /hello.sh /
 RUN chmod 777 /hello.sh
-RUN sh /hello.sh
 CMD ["./hello.sh"]
 ```
 💡La línea `RUN sh /hello.sh` solo será ejecuta en el momento de creación de la imagen personalizada; pero para el ejemplo no es de interés. 
