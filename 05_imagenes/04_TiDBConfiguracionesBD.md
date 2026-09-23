@@ -39,15 +39,30 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1 🎈 CARACTERES BORRADOS ZJQ0FURS0tLS0tC
 
 ### Comando para convertir el certificado a BASE64
 
-```
+📚 ***Notas***
+- El comando `base64` es nativo de Linux.
+- Yo ejecuté el comando en **Windows** desde la carpeta **Downloads** en la **Terminal**
+- :warning: El **miércoles 23 de septiembre de 2026** no me funcionó tal como lo describo en la línea anterior. Investigando, encontré que el comando `base64` nunca ha sido incluído en `Windows 10` ni `Windows 11`. Entonces, es probable que algún software de terceros tenía la herramienta `base64`. He comprobado que en la consola de `GitBash` sí está disponible el comando `base64`. Además, recuerdo que tenía instalado el entorno `Cygwin` que permite instalar paquetes y ejecutar comandos de Linux. En conclusión, por algún software que no es nativo de Windows puede ejecutar el comando `base64` en Windows.  
+- Durante las prácticas (en capacitación), el archivo **isrgrootx1.pem** lo copiamos en la carpeta raiz del proyecto de Laravel y luego desde la distribución de Ubuntu que instalamos en WSL2 ingresamos a la carpeta raíz y ejecutamos el comando; pero pienso que no es necesario porque al final, lo que se busca es disponer del certificado en BASE64 que es un código en una sola línea y relativamente más corto que el contenido original. 
+
+
+El comando que debemos ejecutar es:  
+```bash
 base64 -w 0 isrgrootx1.pem > ca.pem.b64
 ```
 
-
-📚 ***Notas***
-- Yo ejecuté el comando en **Windows** desde la carpeta **Downloads** en la **Terminal**.
-- Durante las prácticas (en capacitación), el archivo **isrgrootx1.pem** lo copiamos en la carpeta raiz del proyecto de Laravel y luego desde la distribución de Ubuntu que instalamos en WSL2 ingresamos a la carpeta raíz y ejecutamos el comando; pero pienso que no es necesario porque al final, lo que se busca es disponer del certificado en BASE64 que es un código en una sola línea y relativamente más corto que el contenido original.  
 <img width="653" height="135" alt="imagen" src="https://github.com/user-attachments/assets/22865f09-8c8c-4dd6-af5a-88c50d3f7264" />
+
+***Para ejecutar el comando desde Ubuntu***
+
+```bash
+cd /mnt/c
+cd Users
+cd Miguel
+cd Download
+base64 -w 0 isrgrootx1.pem > ca.pem.b64
+```
+
 
 
 
