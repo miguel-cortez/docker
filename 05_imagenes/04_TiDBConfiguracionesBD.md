@@ -2,6 +2,10 @@
 
 ## Paso 1. Clic en Connect
 
+:books: Notas
+- Antes de continuar, debe crear un `Cluster`.  
+- Luego, observe que debe hacer clic en **:bank: Overview**.  
+
 <img width="920" height="430" alt="imagen" src="https://github.com/user-attachments/assets/be206195-17f3-44de-9eef-f0f460b00ab8" />
 
 ## Paso 2. Generar Password
@@ -29,15 +33,7 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 -----END CERTIFICATE-----
 ```
 
-### Certificado convertido a BASE64
-
-<img width="115" height="43" alt="imagen" src="https://github.com/user-attachments/assets/cc78994f-c5b4-4aa5-96ce-7bc956efa2c0" />  
-
-```
-LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1 🎈 CARACTERES BORRADOS ZJQ0FURS0tLS0tCg==
-```
-
-### Comando para convertir el certificado a BASE64
+## Convertir el certificado a BASE64
 
 📚 ***Notas***
 - El comando `base64` es nativo de Linux.
@@ -46,7 +42,7 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1 🎈 CARACTERES BORRADOS ZJQ0FURS0tLS0tC
 - Durante las prácticas (en capacitación), el archivo **isrgrootx1.pem** lo copiamos en la carpeta raiz del proyecto de Laravel y luego desde la distribución de Ubuntu que instalamos en WSL2 ingresamos a la carpeta raíz y ejecutamos el comando; pero pienso que no es necesario porque al final, lo que se busca es disponer del certificado en BASE64 que es un código en una sola línea y relativamente más corto que el contenido original. 
 
 
-El comando que debemos ejecutar es:  
+### Comando para convertir a `base64` 
 ```bash
 base64 -w 0 isrgrootx1.pem > ca.pem.b64
 ```
@@ -63,6 +59,12 @@ cd Download
 base64 -w 0 isrgrootx1.pem > ca.pem.b64
 ```
 
+## Certificado convertido a BASE64
 
+<img width="115" height="43" alt="imagen" src="https://github.com/user-attachments/assets/cc78994f-c5b4-4aa5-96ce-7bc956efa2c0" />  
+
+```
+LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1 🎈 CARACTERES BORRADOS ZJQ0FURS0tLS0tCg==
+```
 
 
