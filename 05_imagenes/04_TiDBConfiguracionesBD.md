@@ -1,14 +1,30 @@
 # Configurar base de datos
 
-## Paso 1. Clic en Connect
+Actualización: `23/09/2026` 
+
+## Paso 1. Crear un recurso  
+
+Haga clic en `Crear Recurso` 
+
+**:star: Nota**. El recurso que se muestra dentro del rectángulo de color rosa es un recurso que yo creé la primera vez (usted lo estaría creando en este momento).  
+
+![image](./img/create_resource.png) 
+
+Las opciones marcadas en con el rectángulo de color verde son las que tiene que seleccionar o escribir. En el nombre de instancia puede escribir el nombre que usted prefiera.  
+
+![image](./img/create_resource_propiedades.png) 
+
+## Paso 2. Clic en Connect
 
 :books: Notas
 - Antes de continuar, debe crear un `Cluster`.  
 - Luego, observe que debe hacer clic en **:bank: Overview**.  
 
-<img width="920" height="430" alt="imagen" src="https://github.com/user-attachments/assets/be206195-17f3-44de-9eef-f0f460b00ab8" />
+![image](./img/connect.png)  
 
-## Paso 2. Generar Password
+## Paso 3. Generar Password
+
+:zap: En `Connection Type`, el `23/09/2026` dispone de dos opciones `Public EndPoint` y `Private EndPoint`. Seleccione `Public EndPoint`.  
 
 <img width="763" height="477" alt="imagen" src="https://github.com/user-attachments/assets/8c8729de-28d4-4120-b4da-2554019b5ed6" />  
 
@@ -17,7 +33,7 @@
 <img width="715" height="589" alt="imagen" src="https://github.com/user-attachments/assets/c66a5410-52d1-4912-be5b-a1a6d7f927b9" />
 
 
-## Paso 3. Codificar el certificado en base64
+## Paso 4. Codificar el certificado en base64
 
 ## CA cert descargado
 
@@ -47,9 +63,11 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 base64 -w 0 isrgrootx1.pem > ca.pem.b64
 ```
 
+Windows:  
+
 <img width="653" height="135" alt="imagen" src="https://github.com/user-attachments/assets/22865f09-8c8c-4dd6-af5a-88c50d3f7264" />
 
-***Para ejecutar el comando desde Ubuntu***
+Linux (Ubuntu instalado con WSL2):  
 
 ```bash
 cd /mnt/c
