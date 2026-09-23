@@ -4,15 +4,12 @@ Actualización: `23/09/2026`
 
 ## Paso 1. Crear un recurso  
 
-:white_check_mark: Haga clic en `Crear Recurso` 
-
-**:star: Nota**. El recurso que se muestra dentro del rectángulo de color rosa es un recurso que yo creé la primera vez (usted lo estaría creando en este momento).  
-
-![image](./img/create_resource.png) 
+![Crear un nuevo recurso](./img/create_resource.png)  
 
 :white_check_mark: Las opciones marcadas con el rectángulo de color verde son las que tiene que seleccionar o escribir. En el nombre de instancia puede escribir el nombre que usted prefiera.  
 
-![image](./img/create_resource_propiedades.png) 
+![alt text](image.png)
+
 
 ## Paso 2. Clic en Connect
 
@@ -20,7 +17,7 @@ Actualización: `23/09/2026`
 - Antes de continuar, debe crear un `Cluster`.  
 - Luego, observe que debe hacer clic en **:bank: Overview**.  
 
-![image](./img/connect.png)  
+![alt text](./img/connect.png)  
 
 ## Paso 3. Generar Password
 
