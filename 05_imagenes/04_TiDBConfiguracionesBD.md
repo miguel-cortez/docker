@@ -4,13 +4,13 @@ Actualización: `23/09/2026`
 
 ## Paso 1. Crear un recurso  
 
-Haga clic en `Crear Recurso` 
+:white_check_mark: Haga clic en `Crear Recurso` 
 
 **:star: Nota**. El recurso que se muestra dentro del rectángulo de color rosa es un recurso que yo creé la primera vez (usted lo estaría creando en este momento).  
 
 ![image](./img/create_resource.png) 
 
-Las opciones marcadas en con el rectángulo de color verde son las que tiene que seleccionar o escribir. En el nombre de instancia puede escribir el nombre que usted prefiera.  
+:white_check_mark: Las opciones marcadas con el rectángulo de color verde son las que tiene que seleccionar o escribir. En el nombre de instancia puede escribir el nombre que usted prefiera.  
 
 ![image](./img/create_resource_propiedades.png) 
 
