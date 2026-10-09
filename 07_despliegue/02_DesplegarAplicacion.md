@@ -1,5 +1,10 @@
 # Desplegar una aplicación en Koyeb.com
 
+### :warning: ADVERTENCIA
+- Utilizamos ```Koyeb.com``` cuando recibimos capacitación de ``Docker``; pero durante las clases del ciclo: 02/2026 con un grupo de estudiantes no se pudo utilizar porque aparenente la plataforma está presentando problemas.
+- En conclusión, si no pudo crear una cuenta funcional en `koyeb.com` tampoco podrá desplegar la aplicación en esta plataforma.
+- RECORDATORIO. En 2026 se utilizó como alternativa `render.com`  
+
 ## Paso 1. Inicie sesión en Koyeb.com
 
 ## Paso 2. Cree un nuevo servicio
