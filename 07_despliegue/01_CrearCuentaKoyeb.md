@@ -1,5 +1,13 @@
 # Crear una cuenta en Koyeb.com
 
+:warning: Utilizamos esta plataforma cuando recibimos capacitación de Docker; pero durante las clases del ciclo: 02/2026 con estudiante no se pudo utilizar porque aparenente la plataforma está presentando problemas.
+
+![Error koyeb](./img/koyeb_no_options.png)  
+
+:star: Para el despliegue de la aplicación en 2026 utilizamos otra plataforma similar. La plataforma utilizada fue ```https://render.com/```
+
+![Error koyeb](./img/render.png)  
+
 ## Paso 1. Ingrese a koyeb.com
 
 [https://www.koyeb.com/](https://www.koyeb.com/)  
