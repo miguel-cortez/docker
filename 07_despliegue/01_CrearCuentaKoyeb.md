@@ -1,7 +1,7 @@
 # Crear una cuenta en Koyeb.com
 
 ### :warning: ADVERTENCIA
-- Utilizamos ```Koyeb.com``` cuando recibimos capacitación de ``Docker``; pero durante las clases del ciclo: 02/2026 con un grupo de estudiantes no se pudo utilizar porque aparenente la plataforma está presentando problemas. La siguiente imagen muesta las únicas dos opciones disponibles al ingresar a ```koyeb.com```, **Settings** y **Log out**. En **Settings** solo hay opciones para desactivar, eliminar o reactivar la organización creada por defecto.  
+- Utilizamos ```Koyeb.com``` cuando recibimos capacitación de ``Docker``; pero durante las clases del ciclo: 02/2026 con un grupo de estudiantes no se pudo utilizar porque aparenente la plataforma está presentando problemas. La siguiente imagen muestra las únicas dos opciones disponibles al ingresar a ```koyeb.com```, **Settings** y **Log out**. En **Settings** solo hay opciones para desactivar, eliminar o reactivar la organización creada por defecto.  
 
 ![Error koyeb](./img/koyeb_no_options.png)  
 
