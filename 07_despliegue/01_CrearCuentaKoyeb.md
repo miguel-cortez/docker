@@ -1,12 +1,17 @@
 # Crear una cuenta en Koyeb.com
 
-:warning: Utilizamos esta plataforma cuando recibimos capacitación de Docker; pero durante las clases del ciclo: 02/2026 con estudiante no se pudo utilizar porque aparenente la plataforma está presentando problemas.
+### :warning: ADVERTENCIA
+- Utilizamos ```Koyeb.com``` cuando recibimos capacitación de ``Docker``; pero durante las clases del ciclo: 02/2026 con un grupo de estudiantes no se pudo utilizar porque aparenente la plataforma está presentando problemas. La siguiente imagen muesta las únicas dos opciones disponibles al ingresar a ```koyeb.com```, **Settings** y **Log out**. En **Settings** solo hay opciones para desactivar, eliminar o reactivar la organización creada por defecto.  
 
 ![Error koyeb](./img/koyeb_no_options.png)  
 
-:star: Para el despliegue de la aplicación en 2026 utilizamos otra plataforma similar. La plataforma utilizada fue ```https://render.com/```
+- ALTERNATIVA Para el despliegue de la aplicación en 2026 utilizamos otra plataforma similar. La plataforma utilizada fue ```https://render.com/```
 
 ![Error koyeb](./img/render.png)  
+
+<hr />
+
+### :rainbow:  SI AÚN QUIERE PROBAR KOYEB.COM SIGA ADELANTE   
 
 ## Paso 1. Ingrese a koyeb.com
 
